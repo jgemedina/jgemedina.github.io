@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security application-security on Software Craftsman, Young Curmudgeon</title>
+    <link>https://log.jorgemedina.se/categories/security-application-security/</link>
+    <description>Recent content in security application-security on Software Craftsman, Young Curmudgeon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/security-application-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OAuth 2 - Security Best Current Practices</title>
+      <link>https://log.jorgemedina.se/post/2020-08-14-oauth2-security-best-current-practices/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://log.jorgemedina.se/post/2020-08-14-oauth2-security-best-current-practices/</guid>
+      <description>&lt;p&gt;Some notes from a couple of really quick presentations regarding OAuth 2.0, it went really fast thus challenging to note things down; hopefully will set the path to develop the topic further with this as a starting point.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>writing on Software Craftsman, Young Curmudgeon</title>
+    <link>https://log.jorgemedina.se/categories/writing/</link>
+    <description>Recent content in writing on Software Craftsman, Young Curmudgeon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useful Writing</title>
+      <link>https://log.jorgemedina.se/post/2020-10-24-writing-usefully/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://log.jorgemedina.se/post/2020-10-24-writing-usefully/</guid>
+      <description>&lt;p&gt;Found this article titled &lt;a href=&#34;http://paulgraham.com/useful.html&#34;&gt;&amp;ldquo;How To Write Usefully&amp;rdquo;&lt;/a&gt; (or &lt;a href=&#34;https://web.archive.org/web/20200221091349/https://paulgraham.com/useful.html&#34;&gt;on the web archive&lt;/a&gt;) which dives deep into how knowledge is conveyed to readers where correctness, novelty among other traits are measured; rather than relying in relatively correct but somewhat vague arguments, we aim to carefully make strong claims without jeopardizing their &lt;em&gt;truthiness&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Smart Note Taking - 10 Principles</title>
+      <link>https://log.jorgemedina.se/post/2020-07-18-ten-note-taking-principles/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://log.jorgemedina.se/post/2020-07-18-ten-note-taking-principles/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fortelabs.co/blog/how-to-take-smart-notes&#34;&gt;How To Take Smart Notes: 10 Principles&lt;/a&gt; is a great read which elaborates precisely on note-taking, quoting the book &lt;a href=&#34;https://www.amazon.com/gp/product/B06WVYW33Y/ref=as_li_tl&#34;&gt;How To Take Smart Notes&lt;/a&gt; which itself got some inspiration from the note-taking technique called &lt;em&gt;The Slip-Box&lt;/em&gt; from &lt;a href=&#34;https://en.wikipedia.org/wiki/Niklas_Luhmann&#34;&gt;Niklas Luhmann&lt;/a&gt;; the method is also described in the blog post.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

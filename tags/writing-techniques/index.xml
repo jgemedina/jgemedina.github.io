@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>writing techniques on Software Craftsman, Young Curmudgeon</title>
+    <link>https://log.jorgemedina.se/tags/writing-techniques/</link>
+    <description>Recent content in writing techniques on Software Craftsman, Young Curmudgeon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/tags/writing-techniques/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useful Writing</title>
+      <link>https://log.jorgemedina.se/post/2020-10-24-writing-usefully/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://log.jorgemedina.se/post/2020-10-24-writing-usefully/</guid>
+      <description>&lt;p&gt;Found this article titled &lt;a href=&#34;http://paulgraham.com/useful.html&#34;&gt;&amp;ldquo;How To Write Usefully&amp;rdquo;&lt;/a&gt; (or &lt;a href=&#34;https://web.archive.org/web/20200221091349/https://paulgraham.com/useful.html&#34;&gt;on the web archive&lt;/a&gt;) which dives deep into how knowledge is conveyed to readers where correctness, novelty among other traits are measured; rather than relying in relatively correct but somewhat vague arguments, we aim to carefully make strong claims without jeopardizing their &lt;em&gt;truthiness&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

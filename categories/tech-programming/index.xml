@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech programming on Software Craftsman, Young Curmudgeon</title>
+    <link>https://log.jorgemedina.se/categories/tech-programming/</link>
+    <description>Recent content in tech programming on Software Craftsman, Young Curmudgeon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/tech-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go resources</title>
+      <link>https://log.jorgemedina.se/post/2019-05-15-golang-resources/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://log.jorgemedina.se/post/2019-05-15-golang-resources/</guid>
+      <description>&lt;p&gt;Lately I have had the opportunity to play with &lt;a href=&#34;https://golang.org&#34; title=&#34;Go Lang&#34;&gt;Go&lt;/a&gt; and so far I am quite impressed, I have barely started using it thus only touched the surface, from the design principles behind the language to its basic syntax and structure.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech scripting utilities on Software Craftsman, Young Curmudgeon</title>
+    <link>https://log.jorgemedina.se/categories/tech-scripting-utilities/</link>
+    <description>Recent content in tech scripting utilities on Software Craftsman, Young Curmudgeon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/tech-scripting-utilities/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Daily Routine Scripts</title>
+      <link>https://log.jorgemedina.se/post/2018-10-02-util-scripts/</link>
+      <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://log.jorgemedina.se/post/2018-10-02-util-scripts/</guid>
+      <description>As I personally tend to move from my office to coffee shops and taking my laptop everywhere, something I personally like to do, especially when outside the office is to run on battery and later on plug to AC later, that said, I switch between Balanced and High Performance plans respectively.
+Here is a PowerShel Script that uses WMI to list and switch power plans based on a key given, internally using a dict.</description>
+    </item>
+    
+  </channel>
+</rss>
