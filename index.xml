@@ -2,129 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software Craftsman, Young Curmudgeon</title>
-    <link>jgemedina.github.io/</link>
+    <link>https://jgemedina.github.io/</link>
     <description>Recent content on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jgemedina.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Useful Writing</title>
-      <link>jgemedina.github.io/post/2020-10-24-writing-usefully/</link>
+      <link>https://jgemedina.github.io/post/2020-10-24-writing-usefully/</link>
       <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-10-24-writing-usefully/</guid>
+      <guid>https://jgemedina.github.io/post/2020-10-24-writing-usefully/</guid>
       <description>&lt;p&gt;Found this article titled &lt;a href=&#34;http://paulgraham.com/useful.html&#34;&gt;&amp;ldquo;How To Write Usefully&amp;rdquo;&lt;/a&gt; (or &lt;a href=&#34;https://web.archive.org/web/20200221091349/https://paulgraham.com/useful.html&#34;&gt;on the web archive&lt;/a&gt;) which dives deep into how knowledge is conveyed to readers where correctness, novelty among other traits are measured; rather than relying in relatively correct but somewhat vague arguments, we aim to carefully make strong claims without jeopardizing their &lt;em&gt;truthiness&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>OAuth 2 - Security Best Current Practices</title>
-      <link>jgemedina.github.io/post/2020-08-14-oauth2-security-best-current-practices/</link>
+      <link>https://jgemedina.github.io/post/2020-08-14-oauth2-security-best-current-practices/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-08-14-oauth2-security-best-current-practices/</guid>
+      <guid>https://jgemedina.github.io/post/2020-08-14-oauth2-security-best-current-practices/</guid>
       <description>&lt;p&gt;Some notes from a couple of really quick presentations regarding OAuth 2.0, it went really fast thus challenging to note things down; hopefully will set the path to develop the topic further with this as a starting point.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BitchX &amp; macOS</title>
-      <link>jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</link>
+      <link>https://jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</guid>
+      <guid>https://jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</guid>
       <description>&lt;p&gt;Recently I was enticed to use &lt;a href=&#34;http://bitchx.sourceforge.net&#34; title=&#34;BitchX IRC Clkient&#34;&gt;BitchX&lt;/a&gt; again as I have been dwelling in IRC networks more, installing is a straightforward process thanks to &lt;em&gt;homebrew&lt;/em&gt; but getting it look to how it did back then requires a bit more of work&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Smart Note Taking - 10 Principles</title>
-      <link>jgemedina.github.io/post/2020-07-18-ten-note-taking-principles/</link>
+      <link>https://jgemedina.github.io/post/2020-07-18-ten-note-taking-principles/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-07-18-ten-note-taking-principles/</guid>
+      <guid>https://jgemedina.github.io/post/2020-07-18-ten-note-taking-principles/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://fortelabs.co/blog/how-to-take-smart-notes&#34;&gt;How To Take Smart Notes: 10 Principles&lt;/a&gt; is a great read which elaborates precisely on note-taking, quoting the book &lt;a href=&#34;https://www.amazon.com/gp/product/B06WVYW33Y/ref=as_li_tl&#34;&gt;How To Take Smart Notes&lt;/a&gt; which itself got some inspiration from the note-taking technique called &lt;em&gt;The Slip-Box&lt;/em&gt; from &lt;a href=&#34;https://en.wikipedia.org/wiki/Niklas_Luhmann&#34;&gt;Niklas Luhmann&lt;/a&gt;; the method is also described in the blog post.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Securing CI/CD Pipelines</title>
-      <link>jgemedina.github.io/post/2020-06-07-securing-pipelines/</link>
+      <link>https://jgemedina.github.io/post/2020-06-07-securing-pipelines/</link>
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-06-07-securing-pipelines/</guid>
+      <guid>https://jgemedina.github.io/post/2020-06-07-securing-pipelines/</guid>
       <description>&lt;p&gt;More notes from /NDC Copenhagen 2020/ regarding integrating security aspects into CI/CD pipelines; from best practices to build security into the pipelines as well mechanisms alike to control them.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Web API Application Security</title>
-      <link>jgemedina.github.io/post/2020-05-27-webapi-security/</link>
+      <link>https://jgemedina.github.io/post/2020-05-27-webapi-security/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-05-27-webapi-security/</guid>
+      <guid>https://jgemedina.github.io/post/2020-05-27-webapi-security/</guid>
       <description>&lt;p&gt;Notes taken from the 2-day workshop for &lt;em&gt;Web API Applications Security: Attack and Defense&lt;/em&gt; from NDC Copenhagen 2020 held online on April 2020; this focuses primarily on &lt;em&gt;practical&lt;/em&gt; application security on Web Applications whereat different attack vectors and mitigation techniques are reviewed.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Cloud-native DevEx</title>
-      <link>jgemedina.github.io/post/2020-04-12-devex-notes/</link>
+      <link>https://jgemedina.github.io/post/2020-04-12-devex-notes/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-04-12-devex-notes/</guid>
+      <guid>https://jgemedina.github.io/post/2020-04-12-devex-notes/</guid>
       <description>&lt;p&gt;These are merely some notes I&amp;rsquo;ve been collecting overtime, most of them from &lt;em&gt;microXchg 2019&lt;/em&gt; regarding different practices, guidelines and tooling that impact a team&amp;rsquo;s development experience through the &lt;em&gt;SDLC&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Practical Chaos Engineering</title>
-      <link>jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/</link>
+      <link>https://jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/</guid>
+      <guid>https://jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/</guid>
       <description>&lt;p&gt;A few notes from the session Practical &lt;em&gt;CHAOS Engineering&lt;/em&gt; held at AWS Loft 2019; we dove into the practices, common challenges to exercise the practice as well as tooling usually found when conducting experiments.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://emea-resources.awscloud.com/stockholm-loft-2019-operational-excellence/chaos-engineering-why-breaking-things-should-be-practised&#34; title=&#34;Operational excellence | Practical CHAOS Engineering&#34;&gt;slides&lt;/a&gt; aren now available on AWS EMEA site.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AWS App Mesh</title>
-      <link>jgemedina.github.io/post/2019-10-08-awsloft-appmesh/</link>
+      <link>https://jgemedina.github.io/post/2019-10-08-awsloft-appmesh/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-10-08-awsloft-appmesh/</guid>
+      <guid>https://jgemedina.github.io/post/2019-10-08-awsloft-appmesh/</guid>
       <description>&lt;p&gt;A few notes from the session at AWS Loft 2019 regarding &lt;a href=&#34;https://docs.aws.amazon.com/app-mesh&#34; title=&#34;AWS AppMesh&#34;&gt;AWS AppMesh&lt;/a&gt; as their service mesh offering and common use cases; slides can be fetched &lt;a href=&#34;https://emea-resources.awscloud.com/stockholm-loft-2019-containers/containers-day-appmesh&#34; title=&#34;Presentation slides&#34;&gt;here&lt;/a&gt; from
 the AWS EMEA Resources site.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DevEx - Containerized Applications</title>
-      <link>jgemedina.github.io/post/2019-10-08-awsloft-devex-containerized-applications/</link>
+      <link>https://jgemedina.github.io/post/2019-10-08-awsloft-devex-containerized-applications/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-10-08-awsloft-devex-containerized-applications/</guid>
+      <guid>https://jgemedina.github.io/post/2019-10-08-awsloft-devex-containerized-applications/</guid>
       <description>&lt;p&gt;A few notes from the session at AWS Loft 2019 regarding containerized application, in terms of tools and process that support the developre experience;
 slides are available &lt;a href=&#34;https://emea-resources.awscloud.com/stockholm-loft-2019-containers/containerized-applications-developer-workflow&#34; title=&#34;Containerized applications - slides&#34;&gt;online&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PowerShell Customization</title>
-      <link>jgemedina.github.io/post/2019-06-23-powershell-customizations/</link>
+      <link>https://jgemedina.github.io/post/2019-06-23-powershell-customizations/</link>
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-06-23-powershell-customizations/</guid>
+      <guid>https://jgemedina.github.io/post/2019-06-23-powershell-customizations/</guid>
       <description>&lt;p&gt;Finally I was able to take some time to &amp;ldquo;pimp&amp;rdquo; my powershell prompt, I had took the time to customize
 my zsh prompt both in my mac and pc (using WSL) in order to get &lt;a href=&#34;https://github.com/bhilburn/powerlevel9k&#34; title=&#34;Powerline Theme for ZSH&#34;&gt;Powerline9k&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Go resources</title>
-      <link>jgemedina.github.io/post/2019-05-15-golang-resources/</link>
+      <link>https://jgemedina.github.io/post/2019-05-15-golang-resources/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-05-15-golang-resources/</guid>
+      <guid>https://jgemedina.github.io/post/2019-05-15-golang-resources/</guid>
       <description>&lt;p&gt;Lately I have had the opportunity to play with &lt;a href=&#34;https://golang.org&#34; title=&#34;Go Lang&#34;&gt;Go&lt;/a&gt; and so far I am quite impressed, I have barely started using it thus only touched the surface, from the design principles behind the language to its basic syntax and structure.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Data Access Patterns with DynamoDB</title>
-      <link>jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</link>
+      <link>https://jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</guid>
+      <guid>https://jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</guid>
       <description>&lt;p&gt;This is from a rather interesting session I had last year during &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft Stockholm 2018&lt;/a&gt; regarding DynamoDB as a NoSQL solution for Applications and the importance of analysing our application data access patterns in order to leverage DynamoDB or similar tools.&lt;/p&gt;
 &lt;p&gt;The speaker &lt;a href=&#34;https://twitter.com/houlihan_rick&#34; title=&#34;Rick Houlihan - Twitter Profile&#34;&gt;Rick Houlihan&lt;/a&gt; made the funny comment, that out there word is that NoSQL databases are super flexible, perhaps due to the absence of schema, but he thought they were the contrary, quite inflexible due to most of the time structures and data access operations were design and created for &lt;em&gt;specific&lt;/em&gt; queries.&lt;/p&gt;
 &lt;p&gt;Food for thought, the reality is among the key factors for fast data access is having denormalized data and the right indexing strategy, these constructs can indeed become specific to a single or limited number of operations.&lt;/p&gt;</description>
@@ -132,10 +132,10 @@ my zsh prompt both in my mac and pc (using WSL) in order to get &lt;a href=&#34;
     
     <item>
       <title>Testability in Microservices</title>
-      <link>jgemedina.github.io/post/2019-02-25-testability-in-microservices/</link>
+      <link>https://jgemedina.github.io/post/2019-02-25-testability-in-microservices/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-02-25-testability-in-microservices/</guid>
+      <guid>https://jgemedina.github.io/post/2019-02-25-testability-in-microservices/</guid>
       <description>&lt;p&gt;This is from one of the few sessions, to be exactly two, that I found interesting from &lt;a href=&#34;https://www.developerweek.com/Austin/&#34; title=&#34;DeveloperWeek Austin, TX&#34;&gt;DeveloperWeek Austin 2018&lt;/a&gt;, I personally was expecting more, on the other hand, the 5-hour wait at &lt;a href=&#34;https://franklinbbq.com/&#34; title=&#34;Franklin BBQ&#34;&gt;Franklin BBQ&lt;/a&gt; was worth it.&lt;/p&gt;
 &lt;p&gt;Leaving that aside, this particular summary is regarding those aspects we need to factor in when testing Microservices, especially if one happens to be in the center of the storm, having decided to approach a problem using Microservices, before that though, what situation or challenge (besides being overly willing by mere excitement) warrants the use of Microservices:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -145,19 +145,19 @@ my zsh prompt both in my mac and pc (using WSL) in order to get &lt;a href=&#34;
     
     <item>
       <title>Chaos Engineering</title>
-      <link>jgemedina.github.io/post/2019-02-02-chaos-engineering/</link>
+      <link>https://jgemedina.github.io/post/2019-02-02-chaos-engineering/</link>
       <pubDate>Sat, 02 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-02-02-chaos-engineering/</guid>
+      <guid>https://jgemedina.github.io/post/2019-02-02-chaos-engineering/</guid>
       <description>&lt;p&gt;This is a small extract from a previous post regarding &lt;a href=&#34;https://log.jorgemedina.se/tech%20cloud/2019/01/26/awsloft-resiliency-patterns.html&#34; title=&#34;Patterns for a Resilient Architecture&#34;&gt;Patterns for a Resilient Architecture&lt;/a&gt; in which we reviewed good practices and design to ensure a high degree of resliency in our systems; this was too part of a session during the past &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft&lt;/a&gt; in Stockholm on 2018.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Patterns for a Resilient Architecture</title>
-      <link>jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/</link>
+      <link>https://jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/</link>
       <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/</guid>
+      <guid>https://jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/</guid>
       <description>&lt;p&gt;Yet another long overdue post with the notes from the session &amp;ldquo;Patterns for Resilient Architecture&amp;rdquo; I attended at &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft&lt;/a&gt; last year in Stockholm.&lt;/p&gt;
 &lt;p&gt;Despite being a short session done in a two-parter, the speaker &lt;a href=&#34;https://twitter.com/adhorn&#34; title=&#34;Adrian Hornsby Twitter Account&#34;&gt;Adrian Hornsby&lt;/a&gt; went through quite a few architectural patterns backed up by some basic scenarios to exemplify them (and of course how AWS can help you here); given that we are talking about patterns for resiliency, before anything else, I&amp;rsquo;d better start by giving &lt;em&gt;a&lt;/em&gt; definition of for &lt;strong&gt;Resiliency&lt;/strong&gt;, the one I always have in my head is:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -167,49 +167,49 @@ my zsh prompt both in my mac and pc (using WSL) in order to get &lt;a href=&#34;
     
     <item>
       <title>A few books to read</title>
-      <link>jgemedina.github.io/post/2019-01-22-books-to-read/</link>
+      <link>https://jgemedina.github.io/post/2019-01-22-books-to-read/</link>
       <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-01-22-books-to-read/</guid>
+      <guid>https://jgemedina.github.io/post/2019-01-22-books-to-read/</guid>
       <description>An Article titled Top Learnings from 43 books I&amp;rsquo;ve read in 2018 caught my attention as I was going through my Medium daily digest; I have been trying to get more into reading given that it has never been one of my primary interests, except when I read stuff related to my profession.
 Reading wasn&amp;rsquo;t exactly an activity fostered in my family and I personally never took the time to dive in until now; like much other activities, having a frame of reference and recommendations from active and eager readers is a great influence and starting point.</description>
     </item>
     
     <item>
       <title>AWS Loft - Infrastructure as a Code</title>
-      <link>jgemedina.github.io/post/2018-11-21-aws-loft-iac/</link>
+      <link>https://jgemedina.github.io/post/2018-11-21-aws-loft-iac/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2018-11-21-aws-loft-iac/</guid>
+      <guid>https://jgemedina.github.io/post/2018-11-21-aws-loft-iac/</guid>
       <description>&lt;p&gt;As with other sessions from &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft&lt;/a&gt; in Stockholm, Sweden I attended, I will log my notes here in order to dump the information somewheere. Yesterday in particular I attended a session related to &lt;em&gt;Infrastructure as Code&lt;/em&gt; (I will refer onwards as &lt;em&gt;IaC&lt;/em&gt;) and the role it currently plays in modern software solutions.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>A quick look at CacheCow</title>
-      <link>jgemedina.github.io/post/2018-10-17-cachecow/</link>
+      <link>https://jgemedina.github.io/post/2018-10-17-cachecow/</link>
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2018-10-17-cachecow/</guid>
+      <guid>https://jgemedina.github.io/post/2018-10-17-cachecow/</guid>
       <description>&lt;p&gt;I wanted to give this library a go since I had quite a few posts about it and log what I ended up doing with it as well as key features I need to take into account and have knowledge of.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/aliostad/CacheCow&#34;&gt;CacheCow&lt;/a&gt; stores cache data on the &lt;em&gt;Client-side&lt;/em&gt; while the &lt;em&gt;Server-side&lt;/em&gt; will merely provide caching directives which we can rely on the defaults or tell &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;when&lt;/em&gt; we want to cache our resources. What I think is kind of cool from this library is how it encourages the developer and facilitates deferring handlign cache state validation out of Application code into specific components, it provides a degree of flexibility and extensibility for it.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Daily Routine Scripts</title>
-      <link>jgemedina.github.io/post/2018-10-02-util-scripts/</link>
+      <link>https://jgemedina.github.io/post/2018-10-02-util-scripts/</link>
       <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2018-10-02-util-scripts/</guid>
+      <guid>https://jgemedina.github.io/post/2018-10-02-util-scripts/</guid>
       <description>As I personally tend to move from my office to coffee shops and taking my laptop everywhere, something I personally like to do, especially when outside the office is to run on battery and later on plug to AC later, that said, I switch between Balanced and High Performance plans respectively.
 Here is a PowerShel Script that uses WMI to list and switch power plans based on a key given, internally using a dict.</description>
     </item>
     
     <item>
       <title>Getting Started</title>
-      <link>jgemedina.github.io/post/2018-09-17-getting-started/</link>
+      <link>https://jgemedina.github.io/post/2018-09-17-getting-started/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2018-09-17-getting-started/</guid>
+      <guid>https://jgemedina.github.io/post/2018-09-17-getting-started/</guid>
       <description>Finally I made some time to get this crap going, I intend to use this space to rant about anything that is in my mind as well as whatever I happen to be doing at the time.</description>
     </item>
     

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>devops security on Software Craftsman, Young Curmudgeon</title>
-    <link>jgemedina.github.io/categories/devops-security/</link>
+    <link>https://jgemedina.github.io/categories/devops-security/</link>
     <description>Recent content in devops security on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/categories/devops-security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jgemedina.github.io/categories/devops-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Securing CI/CD Pipelines</title>
-      <link>jgemedina.github.io/post/2020-06-07-securing-pipelines/</link>
+      <link>https://jgemedina.github.io/post/2020-06-07-securing-pipelines/</link>
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-06-07-securing-pipelines/</guid>
+      <guid>https://jgemedina.github.io/post/2020-06-07-securing-pipelines/</guid>
       <description>&lt;p&gt;More notes from /NDC Copenhagen 2020/ regarding integrating security aspects into CI/CD pipelines; from best practices to build security into the pipelines as well mechanisms alike to control them.&lt;/p&gt;</description>
     </item>
     

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws **dynamodb** dataaccess softwarepatterns on Software Craftsman, Young Curmudgeon</title>
-    <link>jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns/</link>
+    <link>https://jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns/</link>
     <description>Recent content in aws **dynamodb** dataaccess softwarepatterns on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Access Patterns with DynamoDB</title>
-      <link>jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</link>
+      <link>https://jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</guid>
+      <guid>https://jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/</guid>
       <description>&lt;p&gt;This is from a rather interesting session I had last year during &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft Stockholm 2018&lt;/a&gt; regarding DynamoDB as a NoSQL solution for Applications and the importance of analysing our application data access patterns in order to leverage DynamoDB or similar tools.&lt;/p&gt;
 &lt;p&gt;The speaker &lt;a href=&#34;https://twitter.com/houlihan_rick&#34; title=&#34;Rick Houlihan - Twitter Profile&#34;&gt;Rick Houlihan&lt;/a&gt; made the funny comment, that out there word is that NoSQL databases are super flexible, perhaps due to the absence of schema, but he thought they were the contrary, quite inflexible due to most of the time structures and data access operations were design and created for &lt;em&gt;specific&lt;/em&gt; queries.&lt;/p&gt;
 &lt;p&gt;Food for thought, the reality is among the key factors for fast data access is having denormalized data and the right indexing strategy, these constructs can indeed become specific to a single or limited number of operations.&lt;/p&gt;</description>

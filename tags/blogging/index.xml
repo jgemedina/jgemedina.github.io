@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blogging on Software Craftsman, Young Curmudgeon</title>
-    <link>jgemedina.github.io/tags/blogging/</link>
+    <link>https://jgemedina.github.io/tags/blogging/</link>
     <description>Recent content in blogging on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/blogging/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jgemedina.github.io/tags/blogging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started</title>
-      <link>jgemedina.github.io/post/2018-09-17-getting-started/</link>
+      <link>https://jgemedina.github.io/post/2018-09-17-getting-started/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2018-09-17-getting-started/</guid>
+      <guid>https://jgemedina.github.io/post/2018-09-17-getting-started/</guid>
       <description>Finally I made some time to get this crap going, I intend to use this space to rant about anything that is in my mind as well as whatever I happen to be doing at the time.</description>
     </item>
     

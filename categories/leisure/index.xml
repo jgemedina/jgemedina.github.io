@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>leisure on Software Craftsman, Young Curmudgeon</title>
-    <link>jgemedina.github.io/categories/leisure/</link>
+    <link>https://jgemedina.github.io/categories/leisure/</link>
     <description>Recent content in leisure on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/categories/leisure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jgemedina.github.io/categories/leisure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BitchX &amp; macOS</title>
-      <link>jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</link>
+      <link>https://jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</guid>
+      <guid>https://jgemedina.github.io/post/2020-07-29-bitchx-on-macos/</guid>
       <description>&lt;p&gt;Recently I was enticed to use &lt;a href=&#34;http://bitchx.sourceforge.net&#34; title=&#34;BitchX IRC Clkient&#34;&gt;BitchX&lt;/a&gt; again as I have been dwelling in IRC networks more, installing is a straightforward process thanks to &lt;em&gt;homebrew&lt;/em&gt; but getting it look to how it did back then requires a bit more of work&lt;/p&gt;</description>
     </item>
     
