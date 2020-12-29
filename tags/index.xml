@@ -2,188 +2,188 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/tags/</link>
+    <link>jgemedina.github.io/tags/</link>
     <description>Recent content in Tags on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>writing techniques</title>
-      <link>https://log.jorgemedina.se/tags/writing-techniques/</link>
+      <link>jgemedina.github.io/tags/writing-techniques/</link>
       <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/writing-techniques/</guid>
+      <guid>jgemedina.github.io/tags/writing-techniques/</guid>
       <description></description>
     </item>
     
     <item>
       <title>oidc oauth2 security</title>
-      <link>https://log.jorgemedina.se/tags/oidc-oauth2-security/</link>
+      <link>jgemedina.github.io/tags/oidc-oauth2-security/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/oidc-oauth2-security/</guid>
+      <guid>jgemedina.github.io/tags/oidc-oauth2-security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>irc bitchx</title>
-      <link>https://log.jorgemedina.se/tags/irc-bitchx/</link>
+      <link>jgemedina.github.io/tags/irc-bitchx/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/irc-bitchx/</guid>
+      <guid>jgemedina.github.io/tags/irc-bitchx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>writing notes guide principles</title>
-      <link>https://log.jorgemedina.se/tags/writing-notes-guide-principles/</link>
+      <link>jgemedina.github.io/tags/writing-notes-guide-principles/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/writing-notes-guide-principles/</guid>
+      <guid>jgemedina.github.io/tags/writing-notes-guide-principles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devops continuousintegration ci continuousdelivery cd</title>
-      <link>https://log.jorgemedina.se/tags/devops-continuousintegration-ci-continuousdelivery-cd/</link>
+      <link>jgemedina.github.io/tags/devops-continuousintegration-ci-continuousdelivery-cd/</link>
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/devops-continuousintegration-ci-continuousdelivery-cd/</guid>
+      <guid>jgemedina.github.io/tags/devops-continuousintegration-ci-continuousdelivery-cd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>webapi applicationsecurity owasp</title>
-      <link>https://log.jorgemedina.se/tags/webapi-applicationsecurity-owasp/</link>
+      <link>jgemedina.github.io/tags/webapi-applicationsecurity-owasp/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/webapi-applicationsecurity-owasp/</guid>
+      <guid>jgemedina.github.io/tags/webapi-applicationsecurity-owasp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devex software development</title>
-      <link>https://log.jorgemedina.se/tags/devex-software-development/</link>
+      <link>jgemedina.github.io/tags/devex-software-development/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/devex-software-development/</guid>
+      <guid>jgemedina.github.io/tags/devex-software-development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws kaos chaosengineering</title>
-      <link>https://log.jorgemedina.se/tags/aws-kaos-chaosengineering/</link>
+      <link>jgemedina.github.io/tags/aws-kaos-chaosengineering/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/aws-kaos-chaosengineering/</guid>
+      <guid>jgemedina.github.io/tags/aws-kaos-chaosengineering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws appmesh containers</title>
-      <link>https://log.jorgemedina.se/tags/aws-appmesh-containers/</link>
+      <link>jgemedina.github.io/tags/aws-appmesh-containers/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/aws-appmesh-containers/</guid>
+      <guid>jgemedina.github.io/tags/aws-appmesh-containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devex aws codedeploy fargate containers</title>
-      <link>https://log.jorgemedina.se/tags/devex-aws-codedeploy-fargate-containers/</link>
+      <link>jgemedina.github.io/tags/devex-aws-codedeploy-fargate-containers/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/devex-aws-codedeploy-fargate-containers/</guid>
+      <guid>jgemedina.github.io/tags/devex-aws-codedeploy-fargate-containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell customization powershell pwsh scripting</title>
-      <link>https://log.jorgemedina.se/tags/shell-customization-powershell-pwsh-scripting/</link>
+      <link>jgemedina.github.io/tags/shell-customization-powershell-pwsh-scripting/</link>
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/shell-customization-powershell-pwsh-scripting/</guid>
+      <guid>jgemedina.github.io/tags/shell-customization-powershell-pwsh-scripting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang go programminglanguage</title>
-      <link>https://log.jorgemedina.se/tags/golang-go-programminglanguage/</link>
+      <link>jgemedina.github.io/tags/golang-go-programminglanguage/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/golang-go-programminglanguage/</guid>
+      <guid>jgemedina.github.io/tags/golang-go-programminglanguage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws **dynamodb** dataaccess softwarepatterns</title>
-      <link>https://log.jorgemedina.se/tags/aws-dynamodb-dataaccess-softwarepatterns/</link>
+      <link>jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/aws-dynamodb-dataaccess-softwarepatterns/</guid>
+      <guid>jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>microservices testability distributedsystems</title>
-      <link>https://log.jorgemedina.se/tags/microservices-testability-distributedsystems/</link>
+      <link>jgemedina.github.io/tags/microservices-testability-distributedsystems/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/microservices-testability-distributedsystems/</guid>
+      <guid>jgemedina.github.io/tags/microservices-testability-distributedsystems/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws chaos cloud chaos-engineering</title>
-      <link>https://log.jorgemedina.se/tags/aws-chaos-cloud-chaos-engineering/</link>
+      <link>jgemedina.github.io/tags/aws-chaos-cloud-chaos-engineering/</link>
       <pubDate>Sat, 02 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/aws-chaos-cloud-chaos-engineering/</guid>
+      <guid>jgemedina.github.io/tags/aws-chaos-cloud-chaos-engineering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws iaas iac awsloft</title>
-      <link>https://log.jorgemedina.se/tags/aws-iaas-iac-awsloft/</link>
+      <link>jgemedina.github.io/tags/aws-iaas-iac-awsloft/</link>
       <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/aws-iaas-iac-awsloft/</guid>
+      <guid>jgemedina.github.io/tags/aws-iaas-iac-awsloft/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reading self-motivation</title>
-      <link>https://log.jorgemedina.se/tags/reading-self-motivation/</link>
+      <link>jgemedina.github.io/tags/reading-self-motivation/</link>
       <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/reading-self-motivation/</guid>
+      <guid>jgemedina.github.io/tags/reading-self-motivation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming web caching cachecow dotnet aspnet</title>
-      <link>https://log.jorgemedina.se/tags/programming-web-caching-cachecow-dotnet-aspnet/</link>
+      <link>jgemedina.github.io/tags/programming-web-caching-cachecow-dotnet-aspnet/</link>
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/programming-web-caching-cachecow-dotnet-aspnet/</guid>
+      <guid>jgemedina.github.io/tags/programming-web-caching-cachecow-dotnet-aspnet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scripting powershell</title>
-      <link>https://log.jorgemedina.se/tags/scripting-powershell/</link>
+      <link>jgemedina.github.io/tags/scripting-powershell/</link>
       <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/scripting-powershell/</guid>
+      <guid>jgemedina.github.io/tags/scripting-powershell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blogging</title>
-      <link>https://log.jorgemedina.se/tags/blogging/</link>
+      <link>jgemedina.github.io/tags/blogging/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/tags/blogging/</guid>
+      <guid>jgemedina.github.io/tags/blogging/</guid>
       <description></description>
     </item>
     

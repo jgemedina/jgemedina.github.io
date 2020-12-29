@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech microservices on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/categories/tech-microservices/</link>
+    <link>jgemedina.github.io/categories/tech-microservices/</link>
     <description>Recent content in tech microservices on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/tech-microservices/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/categories/tech-microservices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testability in Microservices</title>
-      <link>https://log.jorgemedina.se/post/2019-02-25-testability-in-microservices/</link>
+      <link>jgemedina.github.io/post/2019-02-25-testability-in-microservices/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2019-02-25-testability-in-microservices/</guid>
+      <guid>jgemedina.github.io/post/2019-02-25-testability-in-microservices/</guid>
       <description>&lt;p&gt;This is from one of the few sessions, to be exactly two, that I found interesting from &lt;a href=&#34;https://www.developerweek.com/Austin/&#34; title=&#34;DeveloperWeek Austin, TX&#34;&gt;DeveloperWeek Austin 2018&lt;/a&gt;, I personally was expecting more, on the other hand, the 5-hour wait at &lt;a href=&#34;https://franklinbbq.com/&#34; title=&#34;Franklin BBQ&#34;&gt;Franklin BBQ&lt;/a&gt; was worth it.&lt;/p&gt;
 &lt;p&gt;Leaving that aside, this particular summary is regarding those aspects we need to factor in when testing Microservices, especially if one happens to be in the center of the storm, having decided to approach a problem using Microservices, before that though, what situation or challenge (besides being overly willing by mere excitement) warrants the use of Microservices:&lt;/p&gt;
 &lt;blockquote&gt;

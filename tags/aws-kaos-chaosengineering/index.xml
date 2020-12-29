@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws kaos chaosengineering on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/tags/aws-kaos-chaosengineering/</link>
+    <link>jgemedina.github.io/tags/aws-kaos-chaosengineering/</link>
     <description>Recent content in aws kaos chaosengineering on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/tags/aws-kaos-chaosengineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/aws-kaos-chaosengineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Practical Chaos Engineering</title>
-      <link>https://log.jorgemedina.se/post/2019-10-09-awsloft-practical-chaos-engineering/</link>
+      <link>jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2019-10-09-awsloft-practical-chaos-engineering/</guid>
+      <guid>jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/</guid>
       <description>&lt;p&gt;A few notes from the session Practical &lt;em&gt;CHAOS Engineering&lt;/em&gt; held at AWS Loft 2019; we dove into the practices, common challenges to exercise the practice as well as tooling usually found when conducting experiments.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://emea-resources.awscloud.com/stockholm-loft-2019-operational-excellence/chaos-engineering-why-breaking-things-should-be-practised&#34; title=&#34;Operational excellence | Practical CHAOS Engineering&#34;&gt;slides&lt;/a&gt; aren now available on AWS EMEA site.&lt;/p&gt;</description>
     </item>

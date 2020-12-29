@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> DevEx - Containerized Applications |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-10-08-awsloft-devex-containerized-applications/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >DevEx - Containerized Applications</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-10-08T00:00:00Z">October 08, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-aws">tech aws</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>A few notes from the session at AWS Loft 2019 regarding containerized application, in terms of tools and process that support the developre experience;
+slides are available <a href="https://emea-resources.awscloud.com/stockholm-loft-2019-containers/containerized-applications-developer-workflow" title="Containerized applications - slides">online</a>.</p>
+<p>We had an overview of the process to manage and delivery containerized applications and the key elements in the development process; one practice that becomes
+rather relevant is <em>Infrastructure as Code</em>, this is however not specific of containerized applications but any application that is Cloud based.</p>
+<p>When we practice <em>Infrastructure as Code</em> a key <strong>principle</strong> is to have a <strong>clean separation</strong> between the application and infratructure, this is, that we organize
+and manage resources separately, the idea is that the maintenance of neither should affect the other; this impacts directly:</p>
+<ul>
+<li><strong>Repositories</strong>, how granular should we go?</li>
+<li><strong>Pipelines</strong>, build and delivery mechanisms should target changes that are specific to either area and never across.</li>
+</ul>
+<h2 id="devex">DevEx</h2>
+<p>This comprises practices and tools for each of the areas shown in the table below, most of the tooling referred to are services offered by AWS.</p>
+<blockquote>
+<p>Flow:
+Local development =&gt; IaC =&gt; Deployment safety =&gt; Continuous delivery</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Element</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Tooling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Local Development</td>
+<td style="text-align:left">This is mostly about getting to know some parts of the platform and <strong>gaining confidence</strong> that it will work in a deployed environment in the Cloud; to get as close as possible to a live environment.</td>
+<td style="text-align:left"><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cmd-ecs-cli-local.html" title="AWS ECS CLI">AWS ECS CLI</a> or docker/docker-compose if not using ECS.</td>
+</tr>
+<tr>
+<td style="text-align:left">IaC</td>
+<td style="text-align:left">Model our infrastructure as a combination of templates and code.</td>
+<td style="text-align:left"><a href="https://docs.aws.amazon.com/cdk" title="AWS CDK">AWS CDK</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">Deployment safety</td>
+<td style="text-align:left">Have fail-safe mechanisms to roll out new versions of the application without disruption.</td>
+<td style="text-align:left">B/G deployments with <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html" title="AWS CodeDeploy">AWS CodeDeploy</a>, AWS ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskSet.html" title="AWS TaskSet API">TaskSet API</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">Continuous delivery</td>
+<td style="text-align:left">Establish a strategy to conduct releases which factors in the lifecycle of application code and the underlying platform.</td>
+<td style="text-align:left">The different models were exposed in the <a href="#releasing">next</a> section.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="releasing">Releasing</h2>
+<p>We were walked through various models to handle releases:</p>
+<ul>
+<li><strong>Single Source/Single Pipeline</strong> - The <em>task definition(s)</em> and <em>application code</em> sit at the same repository and are served by the same pipeline, which is responsible of
+building, pushing and releasing.</li>
+<li><strong>Mutiple Sources/Multiple Pipeline</strong> - The <em>task defnition(s)</em> and <em>application code</em> sit at different repositories, there is one dedicated pipeline for each of the sources. While the pipeline
+responsible of the application would build and push newer images to the registry, the other pipeline would be triggered in case a new deployment was needed due to change of settings, regardless
+of what image is used.</li>
+</ul>
+<p>A bit on the rationale about multiple source / multiple pipelines:</p>
+<blockquote>
+<p>In a containerized solution, changes pertinent to the platform supporting the environment, <em>i.e.</em> scaling settings, etc. have nothing to do with the application code itself,
+therfore we&rsquo;d continue to use the image considered latest and that is actively running.</p>
+</blockquote>
+<ul>
+<li><strong>Consume base image</strong> - This is the typical model, where a prebuilt image (not built by us) serves as base, our task which describes the use of such image, is built and pushed to the registry by a pipeline. Again, the task rollout is handled separately from building a new image.</li>
+<li><strong>Consume side-car image from central team</strong> - We build and push a base image to the registry, when deploye an extra image is deployed along as a side car to our application; the side car could have
+supporting utilities to our application.</li>
+<li><strong>Dev builds images, Ops pushes them</strong> - The only remark here is that the deployment from images is handled exclusively by operations, this is more about delimiting the responsibility of each team.</li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<p>About <strong>CodeDeploy</strong> capabilities:</p>
+<ul>
+<li>Supports B/G</li>
+<li>Coming soon: App Mesh and Canary Releases</li>
+</ul>
+<h2 id="concepts">Concepts</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/cdk/latest/guide/constructs.html" title="AWS CDK - Constructs"><em>AWS CDK Constructs</em></a> (bundle of rules/code definitions) prebuilt to achieve common tasks</li>
+<li><em>Task</em> is the term used to refer to a container.</li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/devex-aws-codedeploy-fargate-containers">devex aws codedeploy fargate containers</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

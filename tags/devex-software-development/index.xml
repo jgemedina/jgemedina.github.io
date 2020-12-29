@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>devex software development on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/tags/devex-software-development/</link>
+    <link>jgemedina.github.io/tags/devex-software-development/</link>
     <description>Recent content in devex software development on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/tags/devex-software-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/devex-software-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud-native DevEx</title>
-      <link>https://log.jorgemedina.se/post/2020-04-12-devex-notes/</link>
+      <link>jgemedina.github.io/post/2020-04-12-devex-notes/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2020-04-12-devex-notes/</guid>
+      <guid>jgemedina.github.io/post/2020-04-12-devex-notes/</guid>
       <description>&lt;p&gt;These are merely some notes I&amp;rsquo;ve been collecting overtime, most of them from &lt;em&gt;microXchg 2019&lt;/em&gt; regarding different practices, guidelines and tooling that impact a team&amp;rsquo;s development experience through the &lt;em&gt;SDLC&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     

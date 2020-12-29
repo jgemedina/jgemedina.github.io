@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Securing CI/CD Pipelines |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2020-06-07-securing-pipelines/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Securing CI/CD Pipelines</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2020-06-07T00:00:00Z">June 07, 2020</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/devops-security">devops security</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>More notes from /NDC Copenhagen 2020/ regarding integrating security aspects into CI/CD pipelines; from best practices to build security into the pipelines as well mechanisms alike to control them.</p>
+<p>Mechanisms can be placed in at different levels, from code to infrastructure to ensure the best outcome possible and according to our requirements.</p>
+<p>To start with, some considerations:</p>
+<ul>
+<li>No credentials or secrets in application code</li>
+<li>Secure applications</li>
+<li>Secure containers</li>
+<li>Secure infrastructure</li>
+<li>No seceret or credentials in source</li>
+</ul>
+<h3 id="securing-code-quality-and-security">Securing Code Quality and Security</h3>
+<p>Looking after your <strong>code quality</strong> benefits the security of it too, some practices to conduct:</p>
+<ul>
+<li>No direct pushes to the stable/master branch</li>
+<li>Pull request and peer-reviews</li>
+<li>Branch Policies</li>
+<li>Build validation</li>
+<li>Respository Policies</li>
+</ul>
+<p>Now, in terms in <strong>securing the pipelines</strong>:</p>
+<ul>
+<li>Access control mechanisms
+<ul>
+<li>Access rights to the pipeline itself</li>
+<li>Access rights to the pipeline connections</li>
+<li>Who configures and runs the pipelines</li>
+</ul>
+</li>
+<li>Store secrets in a safe place.</li>
+<li>Approval steps</li>
+</ul>
+<blockquote>
+<p>The key here is to exercise proper access control mechanisms around the pipelines, factoring in
+the different actions we can take on them and who should be able to use them and to what extent.</p>
+</blockquote>
+<p>Finally, some <strong>key takeaways</strong>:</p>
+<ul>
+<li>Introducing security early in the process.</li>
+<li>Security resources and people are limited, automation is the key!</li>
+<li>CI/CD Pipelines are the heart of Security
+<ul>
+<li>Integrate Security into the CI/CD Pipelne</li>
+<li>Secure the CI/CD Pipelnes</li>
+</ul>
+</li>
+</ul>
+<h3 id="tools--frameworks">Tools &amp; Frameworks</h3>
+<ul>
+<li><a href="https://owasp.org/www-project-zap/" title="ZAP | OWASP">OWASP ZAP</a></li>
+<li><a href="https://github.com/AppThreat/sast-scan" title="SAST Scan | @AppThreat GitHub">SAST-Scan</a></li>
+<li><a href="https://owasp.org/www-community/Source_Code_Analysis_Tools" title="Source Code Analysis Tool | OWASP">OWASP Source Code Analysis Tool</a></li>
+<li><a href="https://snyk.io/" title="Synk">Synk.io</a></li>
+<li><a href="https://bolt.whitesourcesoftware.com/" title="Bolt | Whitesource Software">WhiteSource Bolt</a></li>
+<li><a href="https://anchore.com/" title="Anchore">Anchore</a></li>
+<li><a href="https://secdevtools.azurewebsites.net/helpcredscan.html" title="CredScan | Azure Pipelines">CredScan</a></li>
+<li><a href="https://secdevtools.azurewebsites.net" title="Security Code Analysis Tool | Microsoft">Microsoft&rsquo;s Security Code Analysis</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/devops-continuousintegration-ci-continuousdelivery-cd">devops continuousintegration ci continuousdelivery cd</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

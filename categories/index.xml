@@ -2,143 +2,143 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/categories/</link>
+    <link>jgemedina.github.io/categories/</link>
     <description>Recent content in Categories on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>writing</title>
-      <link>https://log.jorgemedina.se/categories/writing/</link>
+      <link>jgemedina.github.io/categories/writing/</link>
       <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/writing/</guid>
+      <guid>jgemedina.github.io/categories/writing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>security application-security</title>
-      <link>https://log.jorgemedina.se/categories/security-application-security/</link>
+      <link>jgemedina.github.io/categories/security-application-security/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/security-application-security/</guid>
+      <guid>jgemedina.github.io/categories/security-application-security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>leisure</title>
-      <link>https://log.jorgemedina.se/categories/leisure/</link>
+      <link>jgemedina.github.io/categories/leisure/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/leisure/</guid>
+      <guid>jgemedina.github.io/categories/leisure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devops security</title>
-      <link>https://log.jorgemedina.se/categories/devops-security/</link>
+      <link>jgemedina.github.io/categories/devops-security/</link>
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/devops-security/</guid>
+      <guid>jgemedina.github.io/categories/devops-security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dev softwaresecurity</title>
-      <link>https://log.jorgemedina.se/categories/dev-softwaresecurity/</link>
+      <link>jgemedina.github.io/categories/dev-softwaresecurity/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/dev-softwaresecurity/</guid>
+      <guid>jgemedina.github.io/categories/dev-softwaresecurity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dev methodology</title>
-      <link>https://log.jorgemedina.se/categories/dev-methodology/</link>
+      <link>jgemedina.github.io/categories/dev-methodology/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/dev-methodology/</guid>
+      <guid>jgemedina.github.io/categories/dev-methodology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech aws</title>
-      <link>https://log.jorgemedina.se/categories/tech-aws/</link>
+      <link>jgemedina.github.io/categories/tech-aws/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech-aws/</guid>
+      <guid>jgemedina.github.io/categories/tech-aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech scripting</title>
-      <link>https://log.jorgemedina.se/categories/tech-scripting/</link>
+      <link>jgemedina.github.io/categories/tech-scripting/</link>
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech-scripting/</guid>
+      <guid>jgemedina.github.io/categories/tech-scripting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech programming</title>
-      <link>https://log.jorgemedina.se/categories/tech-programming/</link>
+      <link>jgemedina.github.io/categories/tech-programming/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech-programming/</guid>
+      <guid>jgemedina.github.io/categories/tech-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech microservices</title>
-      <link>https://log.jorgemedina.se/categories/tech-microservices/</link>
+      <link>jgemedina.github.io/categories/tech-microservices/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech-microservices/</guid>
+      <guid>jgemedina.github.io/categories/tech-microservices/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech cloud</title>
-      <link>https://log.jorgemedina.se/categories/tech-cloud/</link>
+      <link>jgemedina.github.io/categories/tech-cloud/</link>
       <pubDate>Sat, 02 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech-cloud/</guid>
+      <guid>jgemedina.github.io/categories/tech-cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>books reading</title>
-      <link>https://log.jorgemedina.se/categories/books-reading/</link>
+      <link>jgemedina.github.io/categories/books-reading/</link>
       <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/books-reading/</guid>
+      <guid>jgemedina.github.io/categories/books-reading/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
-      <link>https://log.jorgemedina.se/categories/tech/</link>
+      <link>jgemedina.github.io/categories/tech/</link>
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech/</guid>
+      <guid>jgemedina.github.io/categories/tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech scripting utilities</title>
-      <link>https://log.jorgemedina.se/categories/tech-scripting-utilities/</link>
+      <link>jgemedina.github.io/categories/tech-scripting-utilities/</link>
       <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/tech-scripting-utilities/</guid>
+      <guid>jgemedina.github.io/categories/tech-scripting-utilities/</guid>
       <description></description>
     </item>
     
     <item>
       <title>personal</title>
-      <link>https://log.jorgemedina.se/categories/personal/</link>
+      <link>jgemedina.github.io/categories/personal/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/categories/personal/</guid>
+      <guid>jgemedina.github.io/categories/personal/</guid>
       <description></description>
     </item>
     

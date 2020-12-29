@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>programming web caching cachecow dotnet aspnet on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/tags/programming-web-caching-cachecow-dotnet-aspnet/</link>
+    <link>jgemedina.github.io/tags/programming-web-caching-cachecow-dotnet-aspnet/</link>
     <description>Recent content in programming web caching cachecow dotnet aspnet on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/tags/programming-web-caching-cachecow-dotnet-aspnet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/programming-web-caching-cachecow-dotnet-aspnet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A quick look at CacheCow</title>
-      <link>https://log.jorgemedina.se/post/2018-10-17-cachecow/</link>
+      <link>jgemedina.github.io/post/2018-10-17-cachecow/</link>
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2018-10-17-cachecow/</guid>
+      <guid>jgemedina.github.io/post/2018-10-17-cachecow/</guid>
       <description>&lt;p&gt;I wanted to give this library a go since I had quite a few posts about it and log what I ended up doing with it as well as key features I need to take into account and have knowledge of.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/aliostad/CacheCow&#34;&gt;CacheCow&lt;/a&gt; stores cache data on the &lt;em&gt;Client-side&lt;/em&gt; while the &lt;em&gt;Server-side&lt;/em&gt; will merely provide caching directives which we can rely on the defaults or tell &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;when&lt;/em&gt; we want to cache our resources. What I think is kind of cool from this library is how it encourages the developer and facilitates deferring handlign cache state validation out of Application code into specific components, it provides a degree of flexibility and extensibility for it.&lt;/p&gt;</description>
     </item>

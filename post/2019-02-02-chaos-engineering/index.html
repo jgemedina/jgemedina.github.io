@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Chaos Engineering |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-02-02-chaos-engineering/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Chaos Engineering</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-02-02T00:00:00Z">February 02, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-cloud">tech cloud</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>This is a small extract from a previous post regarding <a href="https://log.jorgemedina.se/tech%20cloud/2019/01/26/awsloft-resiliency-patterns.html" title="Patterns for a Resilient Architecture">Patterns for a Resilient Architecture</a> in which we reviewed good practices and design to ensure a high degree of resliency in our systems; this was too part of a session during the past <a href="https://awsloft-stockholm.com/" title="AWS Loft">AWS Loft</a> in Stockholm on 2018.</p>
+<h1 id="the-principle">The Principle</h1>
+<p>To experiment on a System (typically distributed) in order to build confidence in regard to its capability to withstand abnormal conditions. One may think that tests performed on the system are done just at random, but on the contrary,they are designed with specific scenarios in mind and performed on a <em>Controlled Environment</em>.</p>
+<h1 id="the-practice">The Practice</h1>
+<p>The practice is seen as not causing <em>issues</em> but rather <em>reavealing</em> them, we can re-phrase issue as <em>weaknesses</em> as part of the adoption of the mindset; here are some of the areas where we can <em>Inject Faults</em>:</p>
+<ul>
+<li>Application level.</li>
+<li>Host Failure.</li>
+<li>Resource attacks (CPU, memory, disk, etc.).</li>
+<li>Network attacks (dependencies, latency, etc.).</li>
+<li>Region attacks.</li>
+</ul>
+<p>It is typically suggested to <em>start small</em> and proceed <em>gradually</em>.</p>
+<h2 id="phases">Phases</h2>
+<h3 id="1-ready-state">1) Ready State</h3>
+<p>The normal behavior of your system as well as its state, it is not uncommon that systems provide a mechanism to determine its <em>pulse</em>, it is also complemented by defining some sort of metric; this way we can detect if the system is undergoing an anomaly. This would turn to be our <em>baseline</em> for comparison and experimentation.</p>
+<h3 id="2-hypotesis">2) Hypotesis</h3>
+<p>This is where we formulate the questions around the system and its dependencies that give way to the various experiments we decide to conduct.</p>
+<blockquote>
+<p>The <em>What if&hellip;?</em></p>
+</blockquote>
+<h3 id="3-design-and-run-experiment">3) Design and Run experiment</h3>
+<table>
+<thead>
+<tr>
+<th>Design Experiment</th>
+<th>Rules of Thumb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- Pick Hypotesis.</td>
+<td>- Start small.</td>
+</tr>
+<tr>
+<td>- Scope the experiment.</td>
+<td>- Similarity to Production as close as possible.</td>
+</tr>
+<tr>
+<td>- Identify the metrics.</td>
+<td>- Minimize and contain the blast radius.</td>
+</tr>
+<tr>
+<td>- Notify the organization.</td>
+<td>- Have a kill switch.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://martinfowler.com/bliki/CanaryRelease.html" title="Canary Release | Martin Fowler">Canary Release</a> could be an option to conduct an experiment on a live environment, especially if this happens to be Production.</p>
+<h3 id="4-verify-and-learn">4) Verify and Learn</h3>
+<p>This is where we quantify the results of our experiment; the time elapsed until:</p>
+<ul>
+<li>Detection.</li>
+<li>Interested parties are notified.</li>
+<li><em>Graceful degradation</em> takes place.</li>
+<li>System recovered completely.</li>
+</ul>
+<p>The later bullet point is where we could certainly assure everything is stable. Practices such as <em>Post-Mortem</em> take place in order to assess the outcome and working towards finding out a solution, it is good to keep in mind the following:</p>
+<ul>
+<li><em>Failure</em> usually requires multiple <em>faults</em>.</li>
+<li><em>Multiple</em> contributing factors to a fault rather than <em>isolated</em>.</li>
+</ul>
+<h3 id="5-fix">5) Fix</h3>
+<p>A one liner during the presentation, which I personally think is golden</p>
+<blockquote>
+<p>Never let a good crisis go to waste.</p>
+</blockquote>
+<p>The silver lining of a disaster, the given opportunity to fix underlying issues and work towards improvement.</p>
+<p>Challenges to put all this in practice were also addressed, being mostly around work culture:</p>
+<ul>
+<li>The practice is neglected due to lack of time allocation and priority.</li>
+<li>Team members fully allocated.</li>
+<li>Controversy or negative discussions.</li>
+<li>Addressing it can become overly political.</li>
+</ul>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://aws.amazon.com/professional-services/CAF/" title="AWS Cloud Adoption Framework">AWS Cloud Adoption Framework (CAF)</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/aws-chaos-cloud-chaos-engineering">aws chaos cloud chaos-engineering</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Patterns for a Resilient Architecture |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Patterns for a Resilient Architecture</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-01-26T00:00:00Z">January 26, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-cloud">tech cloud</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>Yet another long overdue post with the notes from the session &ldquo;Patterns for Resilient Architecture&rdquo; I attended at <a href="https://awsloft-stockholm.com/" title="AWS Loft">AWS Loft</a> last year in Stockholm.</p>
+<p>Despite being a short session done in a two-parter, the speaker <a href="https://twitter.com/adhorn" title="Adrian Hornsby Twitter Account">Adrian Hornsby</a> went through quite a few architectural patterns backed up by some basic scenarios to exemplify them (and of course how AWS can help you here); given that we are talking about patterns for resiliency, before anything else, I&rsquo;d better start by giving <em>a</em> definition of for <strong>Resiliency</strong>, the one I always have in my head is:</p>
+<blockquote>
+<p>The ability of a System to handle abnormal crap and eventually recover, or at least do our best to get there.</p>
+</blockquote>
+<p>Usually, such circumstances will be of the &ldquo;I-have-no-control-over&rdquo; kind, our systems must embrace and accept that truth and &ldquo;take them like a champ&rdquo; when they happen. Another key aspect is that systems should, as much as possible, <em>degrade gracefully</em> rather than <em>fail beautifully</em> when facing an operational problem, at least until the system recovers.</p>
+<h1 id="patterns">Patterns</h1>
+<p>They were wrapped in four different contexts:</p>
+<ul>
+<li>Infrastructure</li>
+<li>Network and Data</li>
+<li>Application</li>
+<li>People</li>
+</ul>
+<h2 id="infrastructure">Infrastructure</h2>
+<p><em>System availability</em> addresses the different techniques and concepts were addressed such as <em>Availability Zones</em> and Mult-Regional Redundancy, present in almost every vendor, these practices when applied give us High-Availability and Low-Latency, they also lie at the foundation for things such as <em>Disaster Recovery</em>. Some techniques based on routing were mentioned:</p>
+<ul>
+<li>Latency based routing.</li>
+<li>Geo-based routing.</li>
+<li>Weighted Round-Robin.</li>
+<li>DNS Failover.</li>
+</ul>
+<p><strong>Auto-Scaling</strong> was among the topics too as a mechanism to deal with:</p>
+<ul>
+<li>Node Failure.</li>
+<li>Traffic Spikes.</li>
+<li>Performance.</li>
+</ul>
+<p>Ultimately, improve Computing Efficiency.</p>
+<p><strong>Immutable Infrastructure</strong> is practiced to ensure that updates on an operating environment are as less intrusive as possible and without causing an interruption on the service, the key principle is that the change is applied on new infrastructure rather than the live one, you never touch a live environment. Some take aways:</p>
+<ul>
+<li>No updates on live streams.</li>
+<li>Always start with newly provisoned resources.</li>
+<li>DNS cutovers / routing.</li>
+<li>Keep old verisones up and running in case we need to switch back (fast rollback upon failure)</li>
+</ul>
+<h2 id="network-and-data">Network and Data</h2>
+<p>As our network topology grows and we spread our data out, a few bits here and others there, we will likely face situations where we need to choose between <em>high availability</em> and <em>consistency</em>, you cannot have both it is said, you know &ldquo;99.99% uptime&hellip; oh and real-time data.&rdquo;</p>
+<p>When we handle errors during an operation, we either <em>handle it</em> or let it fail if the former is not valid; when we say we handle an issue, we typicalle rely on our cache store, fallback to configured as defaults, etc. at least until the system fully recovers, in short <strong>Eventual Consistency</strong>.  By properly designing and laying out our components and knowing their interactions we set expectations and build components with a preventive approach, below some known techniques to achieve this:</p>
+<ul>
+<li>Perform workloads asynchronously.</li>
+<li>Prioritize with Queues.</li>
+<li>Read/Write sharding.</li>
+<li>Database Federation.</li>
+<li>Database Sharding.</li>
+</ul>
+<p>Another highlight externed is that databases should not handle <em>Transient States</em>.</p>
+<h2 id="application">Application</h2>
+<p>At the application layer, issues are approached based on different aspects: traffic, how critical it is to the business, workloads, etc. In a distributed system it is not uncommon to face <em>cascading failures</em>, the causes usually being some component in the network slowing down or failing, this usually has a domino effect on the rest of the mesh. In order to address the issues, we have at our disposal different known patterns to ensure a desired level of resliency, we list below some of the most common:</p>
+<ul>
+<li>Timeouts.</li>
+<li>Degradation and Fallback.</li>
+<li>Exponential Backoff (with Jitter).</li>
+<li>Circuit Breaker.</li>
+<li>Bulkhead isolation.</li>
+</ul>
+<p>These techniques are applicable when issues arise during the executing flow; another side to this is to find out whether a service is in a good state of not or <em>healthy</em>. Perfoming a system healthcheck is usually either <em>Shallow</em> and <em>Deep</em>, the difference being that the latter will trasverse a whole vertical, this is, a component from start to end, most of the times the result is more trustworthy that the former.</p>
+<h2 id="people">People</h2>
+<p>Lastly but not least important is the people factor, the lesson learned here is that the more we seggregate responsibilities and roles within a single team or several, the better its scaling maps to that of the system, this aligns with Conway&rsquo;s law.</p>
+<p>Teams, their functions, practices and process should scale along with the system they are supporting, it is almost symbiotic.</p>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://aws.amazon.com/professional-services/CAF/" title="AWS Cloud Adoption Framework">AWS Cloud Adoption Framework (CAF)</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/aws-iaas-iac-awsloft">aws iaas iac awsloft</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+    <div class="releated-posts">
+      <h3>Related Posts</h3>
+      
+      <i class="fas fa-paperclip"></i>
+      <a href="jgemedina.github.io/post/2018-11-21-aws-loft-iac/">AWS Loft - Infrastructure as a Code</a>
+      <br>
+      
+    </div>
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

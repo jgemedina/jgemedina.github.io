@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Practical Chaos Engineering |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-10-09-awsloft-practical-chaos-engineering/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Practical Chaos Engineering</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-10-09T00:00:00Z">October 09, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-aws">tech aws</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>A few notes from the session Practical <em>CHAOS Engineering</em> held at AWS Loft 2019; we dove into the practices, common challenges to exercise the practice as well as tooling usually found when conducting experiments.</p>
+<p>The <a href="https://emea-resources.awscloud.com/stockholm-loft-2019-operational-excellence/chaos-engineering-why-breaking-things-should-be-practised" title="Operational excellence | Practical CHAOS Engineering">slides</a> aren now available on AWS EMEA site.</p>
+<h2 id="the-practice">The practice</h2>
+<p>We are encouraged to interpret <em>CHAOS engineering</em> as a practice that allow us to <strong>build confidence</strong> in our systems by <strong>conducting experiments</strong> under a controlled environment, additionally, we could at an early stage pinpoint weaknesses in our systems. Monitoring activity and assessing results constantly are practices part of the lifecycle as a direct feedback loop.</p>
+<p>Ultimately, this becomes a cycle of <em>experimenting</em>, <em>reviewing results</em> and <em>improving</em>; in practice, it is divided in the following stages:</p>
+<ol>
+<li>Figure out the systems <em>ready state</em>, in order words, its normal behavior.</li>
+<li>Produce an hypothesis, start with <em>what if?</em>.</li>
+<li>Design and run the experiment.</li>
+<li>Verify and quantify the results, i.e.: <em>time to detect</em>, <em>notify</em>, <em>self-heal</em>, et cetera.</li>
+<li>Improve.</li>
+</ol>
+<p>One instrumental part when designing the  experiments is how to deliberately create failure scenarios, in  practice, this is called <strong>failure injection</strong> and it can be applied at the following levels (<em>perturbation models</em>):</p>
+<ul>
+<li>Application</li>
+<li>Host</li>
+<li>Resources (CPU, Mem)</li>
+<li>Network</li>
+<li>AZ / Region</li>
+<li>People</li>
+</ul>
+<p>We also need to have a clear understanding of the <strong>blast radius</strong> of our experiment and have mechanisms to stop it, i.e. an <strong>emergency button</strong>; it is also advised to start simple and local, unlike common belief, experiments in productions should be rare and highly controlled, some dimensions to factor in as part of the practice:</p>
+<ul>
+<li>Software (versioning, memory leaks, certificate expiration, etc.)</li>
+<li>Infrastrucure (redundancy, self-healing, bulkheads and cells, etc.)</li>
+<li>Application (resiliency patterns, load shedding, etc.)</li>
+<li>Operations (observability, monitoring, etc.)</li>
+</ul>
+<p><em>CHAOS Engineering</em> will not elimimate failure entirely, rather handle it more gracefully; we shouldn&rsquo;t think of the practie as a replacement for other mechanisms such as <em>unit</em> or <em>integration tests</em> as they address other things like quality.</p>
+<h3 id="productstooling">Products/Tooling</h3>
+<p>The following tools were shwon by the speaker, some of them are good for local experimentation and others meant to be used in live/deployed environments.</p>
+<ul>
+<li>Stress CPU: <a href="https://github.com/ColinIanKing/stress-ng" title="Stress NG">stress-ng</a></li>
+<li>Network Delay/Latency: <a href="https://linux.die.net/man/8/tc" title="TC man page">tc</a></li>
+<li>Block DNS resolution: iptables could be used to block DNS queries</li>
+<li>DDoS: <a href="https://github.com/wg/wrk" title="wrk - HTTP Benchmarking tool">wrk</a> is an <em>HTTP</em> benchmarking tool we could to generate concurrent calls.</li>
+<li><a href="https://chaostoolkit.org/" title="The Chaos Toolkit">The CHAOS Toolkit</a> (experiment definitions)</li>
+<li><a href="https://www.gremlin.com/" title="Gremlin">Gremlin</a></li>
+<li><a href="http://toxiproxy.io/" title="ToxiProxy">ToxiProxy</a></li>
+<li><a href="https://github.com/adhorn/aws-lambda-layer-chaos-injection" title="chaos-lambda">chaos-lambda</a></li>
+</ul>
+<h2 id="overall-remarks-by-the-speaker">Overall remarks by the speaker</h2>
+<ul>
+<li>Currently there is a challenge to inject failure in <em>AWS Managed Services</em>.</li>
+<li><em>AWS Aurora</em> supports mechanisms such as: disk congestion, disk failure, replica failure, master instance crash.</li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/aws-kaos-chaosengineering">aws kaos chaosengineering</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

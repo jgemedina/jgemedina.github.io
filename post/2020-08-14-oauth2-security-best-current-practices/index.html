@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> OAuth 2 - Security Best Current Practices |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2020-08-14-oauth2-security-best-current-practices/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >OAuth 2 - Security Best Current Practices</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2020-08-14T00:00:00Z">August 14, 2020</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/security-application-security">security application-security</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>Some notes from a couple of really quick presentations regarding OAuth 2.0, it went really fast thus challenging to note things down; hopefully will set the path to develop the topic further with this as a starting point.</p>
+<h2 id="best-current-practices">Best Current Practices</h2>
+<p>I got a couple of them —<em>BCP</em>s for short— to start with, around some of the traditional flows:</p>
+<ul>
+<li><a href="https://oauth.net/2/oauth-best-practice" title="Security Best Current Practices - OAuth2">OAuth 2.0 Security BCP</a> —<a href="https://tools.ietf.org/html/draft-ietf-oauth-security-topics-15" title="OAuth2 Security Topics - IETF">IETF Draft</a></li>
+<li><a href="https://oauth.net/2/browser-based-apps/" title="Security Best Current Practices for Web Browser Based Apps - OAuth2">OAuth 2.0 for Browser-based Applications</a> —<a href="https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-06" title="Security Current Best Practices for Web Browser Based Apps - IETF Draft">IETF Draft</a></li>
+</ul>
+<p>Furthermore, the use of the following flows is discouraged:</p>
+<ul>
+<li>OAuth 2.0 Implicit grant —a good writ about it <a href="https://medium.com/oauth-2/why-you-should-stop-using-the-oauth-implicit-grant-2436ced1c926" title="OAuth2 Implicit Grant - OAuth2@Medium">on medium</a></li>
+<li>Password Grant —as it is incredibly susceptible to phishing attacks.</li>
+</ul>
+<p>More on the <em>Password Grant</em>, an excerpt <a href="https://www.oauth.com/oauth2-servers/access-tokens/password-grant/" title="Password Grant - OAuth2">from Okta</a></p>
+<blockquote>
+<p>The Password grant is used when the application exchanges the user’s username and password for an access token. This is exactly the thing OAuth was created to prevent in the first place, so you should never allow third-party apps to use this grant.</p>
+</blockquote>
+<h2 id="machine-to-machine-flow">Machine-To-Machine Flow</h2>
+<p>Backend-2-Backend is usually where I usually dwell therefore found quite interesting flows such as On-Behalf-Of as the means for authentication/authorization; there were of course some advice for authentication in particular:</p>
+<ul>
+<li><strong>Shared secrets are not recommended</strong>❌ as they easily leak, if used however, they should have high entropy and stored safely.</li>
+<li>Better favor mechanism based on **Asymmetric Keys:**✓</li>
+<li>Look into <em>Singed JWT</em> or <em>Mutual TLS</em>.✓</li>
+</ul>
+<p>Another good advice was to always include the &lsquo;typ&rsquo; header attribute, to properly identify a JWT token and not be confused as any other token type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#960050;background-color:#1e0010">&#39;typ&#39;:</span> <span style="color:#960050;background-color:#1e0010">&#39;at+jwt&#39;</span>
+  <span style="color:#960050;background-color:#1e0010">...</span>
+}
+</code></pre></div><p>That identifies the token as <em>JWT Token</em>, preventing applications confusing them with other types. Other interesting concepts that were brought up during the sessions are listed below:</p>
+<ul>
+<li><em>Sender-Constrained Tokens</em> —described at <em>4.8.1.1.2.  Sender-Constrained Access Tokens</em> in the <a href="https://tools.ietf.org/html/draft-ietf-oauth-security-topics-15" title="OAuth2 Security Topics - IETF">IETF draft</a></li>
+<li><em>Proof-of-Possession Access Tokens</em> -described in this <a href="https://tools.ietf.org/id/draft-ietf-oauth-pop-key-distribution-04.html" title="Proof of Possession: Auth Server to Client distribution - IETF">IETF Memo</a>, also a <a href="https://leastprivilege.com/2020/01/15/oauth-2-0-the-long-road-to-proof-of-possession-access-tokens/" title="The Long Road to Proof of Possession Access Tokens - Leastprivilege.com">write-up</a> about it here to complement things.</li>
+<li>Bringing <em>Mutual TLS</em> &amp; <em>X.509 Certificates</em> into the mix —as described by this <a href="https://tools.ietf.org/id/draft-ietf-oauth-mtls-07.html" title="Mutual TLS for Client Authentication &amp; X.509 Certificate-bound Access Tokens - IETF ">IETF Memo</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq-25" title="JWT Secured Authorization Request (JAR) - IETF"><em>JWT</em>-secured Authorization Requests</a></li>
+<li><a href="https://oauth.net/2/pkce/" title="RFC 7636: Proof Key for Code Exchange">AuthZ Code Flow + PKCE</a> —which is an extension of the /Authorization Code Flow/; here&rsquo;s also the <a href="https://tools.ietf.org/html/rfc7636" title="RFC 7636: Proof of Key for Code Exchange by OAuth Public Clients - IETF">IETF Draft</a></li>
+</ul>
+<p>And finally, some tools mentioned and used during the session:</p>
+<ul>
+<li><a href="https://github.com/leastprivilege/AspNetCoreSecuritySamples" title="ASP.NET Core Security Examples | GitHub">AspNetCoreSecuritySamples</a></li>
+<li><a href="https://owasp.org/www-project-zap/" title="ZAP Proxy - OWASP">OWASP ZAP</a></li>
+<li><a href="https://github.com/AppThreat/sast-scan" title="SAST Scan Tool - AppThreat">AppThreat/SAST-Scan</a></li>
+<li><a href="https://owasp.org/www-community/Source_Code_Analysis_Tools" title="Source Code Analysis Tool - OWASP">OWASP Source Code Analysis Tools</a></li>
+<li><a href="https://portswigger.net/burp" title="Burp Suite - PortSwigger">Burp Suite</a> from <em>PortSwigger</em></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/oidc-oauth2-security">oidc oauth2 security</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

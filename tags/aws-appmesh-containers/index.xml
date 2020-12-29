@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws appmesh containers on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/tags/aws-appmesh-containers/</link>
+    <link>jgemedina.github.io/tags/aws-appmesh-containers/</link>
     <description>Recent content in aws appmesh containers on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/tags/aws-appmesh-containers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/tags/aws-appmesh-containers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS App Mesh</title>
-      <link>https://log.jorgemedina.se/post/2019-10-08-awsloft-appmesh/</link>
+      <link>jgemedina.github.io/post/2019-10-08-awsloft-appmesh/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2019-10-08-awsloft-appmesh/</guid>
+      <guid>jgemedina.github.io/post/2019-10-08-awsloft-appmesh/</guid>
       <description>&lt;p&gt;A few notes from the session at AWS Loft 2019 regarding &lt;a href=&#34;https://docs.aws.amazon.com/app-mesh&#34; title=&#34;AWS AppMesh&#34;&gt;AWS AppMesh&lt;/a&gt; as their service mesh offering and common use cases; slides can be fetched &lt;a href=&#34;https://emea-resources.awscloud.com/stockholm-loft-2019-containers/containers-day-appmesh&#34; title=&#34;Presentation slides&#34;&gt;here&lt;/a&gt; from
 the AWS EMEA Resources site.&lt;/p&gt;</description>
     </item>

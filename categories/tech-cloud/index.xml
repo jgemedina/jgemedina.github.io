@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech cloud on Software Craftsman, Young Curmudgeon</title>
-    <link>https://log.jorgemedina.se/categories/tech-cloud/</link>
+    <link>jgemedina.github.io/categories/tech-cloud/</link>
     <description>Recent content in tech cloud on Software Craftsman, Young Curmudgeon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://log.jorgemedina.se/categories/tech-cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="jgemedina.github.io/categories/tech-cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chaos Engineering</title>
-      <link>https://log.jorgemedina.se/post/2019-02-02-chaos-engineering/</link>
+      <link>jgemedina.github.io/post/2019-02-02-chaos-engineering/</link>
       <pubDate>Sat, 02 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2019-02-02-chaos-engineering/</guid>
+      <guid>jgemedina.github.io/post/2019-02-02-chaos-engineering/</guid>
       <description>&lt;p&gt;This is a small extract from a previous post regarding &lt;a href=&#34;https://log.jorgemedina.se/tech%20cloud/2019/01/26/awsloft-resiliency-patterns.html&#34; title=&#34;Patterns for a Resilient Architecture&#34;&gt;Patterns for a Resilient Architecture&lt;/a&gt; in which we reviewed good practices and design to ensure a high degree of resliency in our systems; this was too part of a session during the past &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft&lt;/a&gt; in Stockholm on 2018.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Patterns for a Resilient Architecture</title>
-      <link>https://log.jorgemedina.se/post/2019-01-26-awsloft-resiliency-patterns/</link>
+      <link>jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/</link>
       <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2019-01-26-awsloft-resiliency-patterns/</guid>
+      <guid>jgemedina.github.io/post/2019-01-26-awsloft-resiliency-patterns/</guid>
       <description>&lt;p&gt;Yet another long overdue post with the notes from the session &amp;ldquo;Patterns for Resilient Architecture&amp;rdquo; I attended at &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft&lt;/a&gt; last year in Stockholm.&lt;/p&gt;
 &lt;p&gt;Despite being a short session done in a two-parter, the speaker &lt;a href=&#34;https://twitter.com/adhorn&#34; title=&#34;Adrian Hornsby Twitter Account&#34;&gt;Adrian Hornsby&lt;/a&gt; went through quite a few architectural patterns backed up by some basic scenarios to exemplify them (and of course how AWS can help you here); given that we are talking about patterns for resiliency, before anything else, I&amp;rsquo;d better start by giving &lt;em&gt;a&lt;/em&gt; definition of for &lt;strong&gt;Resiliency&lt;/strong&gt;, the one I always have in my head is:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>AWS Loft - Infrastructure as a Code</title>
-      <link>https://log.jorgemedina.se/post/2018-11-21-aws-loft-iac/</link>
+      <link>jgemedina.github.io/post/2018-11-21-aws-loft-iac/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://log.jorgemedina.se/post/2018-11-21-aws-loft-iac/</guid>
+      <guid>jgemedina.github.io/post/2018-11-21-aws-loft-iac/</guid>
       <description>&lt;p&gt;As with other sessions from &lt;a href=&#34;https://awsloft-stockholm.com/&#34; title=&#34;AWS Loft&#34;&gt;AWS Loft&lt;/a&gt; in Stockholm, Sweden I attended, I will log my notes here in order to dump the information somewheere. Yesterday in particular I attended a session related to &lt;em&gt;Infrastructure as Code&lt;/em&gt; (I will refer onwards as &lt;em&gt;IaC&lt;/em&gt;) and the role it currently plays in modern software solutions.&lt;/p&gt;</description>
     </item>
     

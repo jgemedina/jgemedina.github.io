@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> AWS App Mesh |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-10-08-awsloft-appmesh/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >AWS App Mesh</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-10-08T00:00:00Z">October 08, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-aws">tech aws</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>A few notes from the session at AWS Loft 2019 regarding <a href="https://docs.aws.amazon.com/app-mesh" title="AWS AppMesh">AWS AppMesh</a> as their service mesh offering and common use cases; slides can be fetched <a href="https://emea-resources.awscloud.com/stockholm-loft-2019-containers/containers-day-appmesh" title="Presentation slides">here</a> from
+the AWS EMEA Resources site.</p>
+<p>It seems that the applications so far are around deployments, by providing mechanism that enable to us to conduct them in an agile,
+flexible yet robust way; the mesh is used to control the traffic flow as part of the deployment process, i.e. <em>Canary Releases</em>, <em>0-downtime</em> deployments
+by following a <em>Blue/Green approach</em>.</p>
+<p>It was strange however, that application resiliency wasn&rsquo;t part of the use cases reviewed, they were in fact barely mentioned; patterns such
+as <em>Circuit-Breaker</em> are still on the road map of features to come (at the time of this writing), it supports basic patterns such as <em>Retries</em> and <em>Exponential Back-Off</em>.</p>
+<h2 id="features-and-applications">Features and applications</h2>
+<ul>
+<li><strong>Obervability</strong> and control of Application-level communication.</li>
+<li>Provides mechanism for <strong>Failure isolation/protection</strong> (resiliency).</li>
+<li>Proxy-based node management, a proxy exists as a sidecar on every virtual node.</li>
+<li>Features for <strong>Tracing</strong> and <strong>Logging</strong>.</li>
+<li>Fine-grained deployment control by managing/shaping client-side traffic and routing, i.e. <em>Canary Releases</em> or <em>Blue/Green</em>.</li>
+</ul>
+<h3 id="app-mesh-components">App Mesh components:</h3>
+<p>Captured some of the key elements and buzzwords comprising the Service.</p>
+<ul>
+<li>Mesh name.</li>
+<li><a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html" title="AWS AppMesh - Virtual Nodes">Virtual nodes</a> (actual functioning services)
+<ul>
+<li>Backend</li>
+<li>Service discovery</li>
+<li>Listener</li>
+</ul>
+</li>
+<li>Routes</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html" title="AWS AppMesh - Virtual Services">Virtual Service</a></li>
+</ul>
+<p><a href="https://flagger.app/" title="Flagger App">Flagger</a> was quick-demoed to demonstrate <em>Canary Releases</em>, the <strong>value added</strong> to a mesh is that it enables us to <strong>automate</strong>, requiring virtually no human intervention
+in order to control the routing to and from nodes based on the results as it makes progress.</p>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>As expected being an AWS offering, it works across various computing services: <em>ECS</em>, <em>Fargate</em>, <em>EKS</em>, <em>EC2</em> and <em>K8s on EC2</em>.</li>
+<li><a href="https://www.envoyproxy.io/" title="Envoy Proxy">Envoy Proxy</a> is used under the hood.</li>
+<li>Main actors/elements are <em>Virtual Nodes</em>, <em>Virtual Services</em> and <em>Routes</em>.</li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/aws-appmesh-containers">aws appmesh containers</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

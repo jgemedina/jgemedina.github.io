@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Data Access Patterns with DynamoDB |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-03-09-data-access-patterns-with-dynamodb-p1/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Data Access Patterns with DynamoDB</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-03-09T00:00:00Z">March 09, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-aws">tech aws</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>This is from a rather interesting session I had last year during <a href="https://awsloft-stockholm.com/" title="AWS Loft">AWS Loft Stockholm 2018</a> regarding DynamoDB as a NoSQL solution for Applications and the importance of analysing our application data access patterns in order to leverage DynamoDB or similar tools.</p>
+<p>The speaker <a href="https://twitter.com/houlihan_rick" title="Rick Houlihan - Twitter Profile">Rick Houlihan</a> made the funny comment, that out there word is that NoSQL databases are super flexible, perhaps due to the absence of schema, but he thought they were the contrary, quite inflexible due to most of the time structures and data access operations were design and created for <em>specific</em> queries.</p>
+<p>Food for thought, the reality is among the key factors for fast data access is having denormalized data and the right indexing strategy, these constructs can indeed become specific to a single or limited number of operations.</p>
+<h1 id="features">Features</h1>
+<p>DynamoDB has the following features:</p>
+<ul>
+<li>Fast and consistent.</li>
+<li>Fully Managed</li>
+<li>Key/Value or Documents as storage items.</li>
+<li>Highly scalable to any workload.</li>
+<li>Access control</li>
+<li>Suitable for <a href="https://www.wikiwand.com/en/Event-driven_programming" title="Event-Driven Programming - Wikipedia">Event-Driven Programming</a>.</li>
+</ul>
+<p>Now, down to the storage unit in DynamoDB, we find a <strong>Table</strong> which consist of the following elements:</p>
+<h2 id="partition-keys">Partition Keys</h2>
+<p>They <em>uniquely identify</em> an item, therefore they are mandatory. This key also drives the <em>data disitribution across partitions</em>, a good strategy and design for this key impacts directly <em>scaling</em> for data access.</p>
+<p>They are ultimately built as an unordereded <em>hash index</em>.</p>
+<h2 id="sort-keys">Sort Keys</h2>
+<p>Sort keys are optional and more than one can be defined, they enable rich querying capabilities for items, such as:</p>
+<ul>
+<li><em>begins with</em>, <em>in</em>, <em>contains</em>, <em>between</em> type of operations.</li>
+<li>Counts.</li>
+<li>Top/Bottom N values.</li>
+<li>Sorted result.</li>
+<li>Logical/Arithmetical operators.</li>
+</ul>
+<h2 id="indexes">Indexes</h2>
+<h3 id="local-secondary-index-lsi">Local Secondary Index (LSI)</h3>
+<p>They provide the means to establish efficient data access aside from the table&rsquo;s partition keys but rather by an alternate sort key.</p>
+<p>Features:</p>
+<ul>
+<li>Index is <em>local</em> to a partition key</li>
+<li>Alternate sort key attribute.</li>
+<li>You can <em>project</em> some of the attributes in the table.</li>
+</ul>
+<p>Conditions</p>
+<ul>
+<li>The partiton key is the same as that of its base table.</li>
+<li>The sort key consists of exactly one scalar attribute.</li>
+<li>The sort key of the base table is projected into the index.</li>
+</ul>
+<h3 id="global-secondary-index-gsi">Global Secondary Index (GSI)</h3>
+<p>In escence, they achieve the same goal as LSI with, a slight difference is that unlike LSI, GSI give the posibility to use several keys instead of just one.</p>
+<p>Features:</p>
+<ul>
+<li>Index is across <em>all</em> parition keys.</li>
+<li>Uses composite sort keys for compound indexes</li>
+</ul>
+<p>DynamoDB will take care of updating the GSI if needed as data changes in the main table, this process happens asynchronously. Something to look out for is the GSI write capacity, if it is reached, operationd on the tables wil be throttled.</p>
+<h3 id="lsi-or-gsi">LSI or GSI</h3>
+<p>In short, LSIs provide the means to have alternate sort keys based on the table&rsquo;s partition keys, one of the keys, while GSIs can declare its partition key outside of those keys from the base table.</p>
+<p>Some other considerations:</p>
+<ul>
+<li>LSI can me modeled as GSI.</li>
+<li>If the data size in a collection is greather than 10 GB, use GSI.</li>
+</ul>
+<p>The aforementioned size limitation is due to the maximum size allowed of item collections, refer to the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html" title="Local Secondary Indexes | AWS">LSI documentation from AWS</a>, particularly the section for <em>Item Collection</em> and size limits.</p>
+<h2 id="scaling">Scaling</h2>
+<p>This is achieved through partioning and how data is distributed across them; throughput for write and reads are measured by WCU and RCUs accordingly, something to remark is that RCU targets consistent reads specifically and eventually consistent reads cost half a RCU. <strong>Autoscaling</strong> is another interesting feature which provides adaptive throughput based on the traffic we are having.</p>
+<p>Quoting the DynamoDB Developer Guide</p>
+<blockquote>
+<p>To get the most out of DynamoDB throughput, create tables where the partition key element has a large number of distinct values, and such are requested fairly uniformly, as randomly as possible.</p>
+</blockquote>
+<h2 id="data-modeling">Data Modeling</h2>
+<p>In the past I have seen the use of NoSQL Databases where Team try to move an existing relational schema and data or start a fresh one but still thinking about a relational model, I have always imagined a NoSQL solution as a building piece in the bigger picture, there is nothing wrong with multiple stores if each has its own purpose, if you need your data shaped in more than way.</p>
+<p>With NoSQL, it is all about aggregates and specific queries you need, you model your data and indexes accordingly, this is, for the most part, the secret sauce for optimal and speedy reads, data is exactly as you need it, no overhead gluing things together and applying any sort of transforms.</p>
+<p>In the case of DynamoDB, the <strong>tenets</strong> for data modeling:</p>
+<ul>
+<li>Understand the use case.
+<ul>
+<li>OLAP or OLTP Application?.</li>
+<li>ER Model.</li>
+<li>Data Life Cycle Requirements.
+<ul>
+<li>TTL, Backup/Archival, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Identify the access pattern.
+<ul>
+<li>Read/Write workloads.
+<ul>
+<li>ID Data Sources.</li>
+<li>Define Query aggregations.</li>
+<li>Identity and document worklows.</li>
+</ul>
+</li>
+<li>Query dimensions and aggregations.</li>
+</ul>
+</li>
+<li>Use of NoSQL design patterns.
+<ul>
+<li>Identify primary keys</li>
+<li>Table per service (avoid unnecessary queries, simplify access patterns)</li>
+<li>Indexes for secondary access patterns.</li>
+</ul>
+</li>
+</ul>
+<p>Some relationship examples with a data modeling approach:</p>
+<ul>
+<li>1:1, <em>Table</em> or <em>GSI</em> with an alternate Partition Key, use the <strong>GetItem</strong> or <strong>BatchGetItem</strong> API methods.</li>
+<li>1:N, <em>Table</em> or <em>GSI</em> with a Partition and Sort Key, use the <strong>Query</strong> API method.</li>
+<li>N:M, <em>Table</em> and <em>GSI</em> with Partition and Sort Key elements switched, use the <strong>Query</strong> API method, it is the GSI who&rsquo;d give the inverse access query.</li>
+</ul>
+<p>[//]: # Follow up with <em>Design Patterns and Best Practices</em> and beyond in <a href="https://log.jorgemedina.se/p/data-access-patterns-with-dynamodb-part-2" title="Data Access Patterns with DynamoDB Part 2">part two</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://cloudacademy.com/blog/dynamodb-replication-and-partitioning-part-4/" title="DynamoDB Partitioning and Replication | Cloud Academy">DynamoDB Partitioning and Replication</a></li>
+<li><a href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" title="DynamoDB: A Highly-Available Key-Value Store | All Things Distributed (Werner Vogels)">DynamoDB: A Highly-Available Key-Value Store</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDynamo.html" title="Working with DynamoDB | AWS">Working with DynamoDB</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/aws-dynamodb-dataaccess-softwarepatterns">aws **dynamodb** dataaccess softwarepatterns</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Web API Application Security |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2020-05-27-webapi-security/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Web API Application Security</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2020-05-27T00:00:00Z">May 27, 2020</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/dev-softwaresecurity">dev softwaresecurity</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>Notes taken from the 2-day workshop for <em>Web API Applications Security: Attack and Defense</em> from NDC Copenhagen 2020 held online on April 2020; this focuses primarily on <em>practical</em> application security on Web Applications whereat different attack vectors and mitigation techniques are reviewed.</p>
+<p>Content was divided into the security topics: <em>HTTP Protocol</em>, <em>SQL Injection</em>, <em>XSS</em> where the latter is divided into different subcategories.</p>
+<h2 id="http-protocol">HTTP Protocol</h2>
+<p>A few best-practices to consider for both directions, <strong>request</strong> and <strong>response</strong>; we must always keep in mind the side-effects and limitations mitigation mechanisms might bring and ultimately impact the system functionality.</p>
+<h3 id="http-request">HTTP Request</h3>
+<p>Some considerations:</p>
+<ul>
+<li>Avoid putting sensitive information in the <em>URL</em>, either fragments or query string.</li>
+<li>Lock capabilities, accept only the <em>HTTP</em> Verbs that you need.</li>
+<li>Stick to good practices in terms of <em>HTTP</em> Verbs idem-potency and their side-effects.</li>
+</ul>
+<p>Although <em>HTTP GET</em> requests are encrypted in transit, there are still some other ways information contained in it can be leaked:</p>
+<ul>
+<li>User Bookmarks</li>
+<li>Server Logs —of any intermediary component between the User and the Application</li>
+<li><em>HTTP Referrer</em> Headers</li>
+</ul>
+<p>As far as <em>HTTP Referrer</em> Headers, tweaking the <code>Referrer-Policy</code> <em>HTTP Header</em> or using the <code>rel=&quot;noreferrer&quot;</code> in hyperlinks is a start to mitigate such issues.</p>
+<h3 id="http-response">HTTP Response</h3>
+<p>The response side is where we can some kind of control over the client, though we still depend on the client compliance to standards and not doing their own thing; some security considerations on this side are:</p>
+<ul>
+<li>Enable <code>Strict-Transport-Security</code> (HSTS) Header</li>
+<li><em>HTTPOnly</em> cookies to counter <em>Cookie Theft</em> and <em>Tampering</em></li>
+<li>X-XSS-Protection Header —refer to curent browser compatibility, things ar far from good here.</li>
+</ul>
+<blockquote>
+<p>The usage of this header is discouraged as browsers are dropping compatibility as it is not
+a standard header; as a matter of fact, the usage of the CSP header is favored.</p>
+</blockquote>
+<ul>
+<li><code>nosniff</code> for the <code>X-Content-Type-Options</code> header.</li>
+<li>Usage of <code>Allow-Access-Control-Orign</code></li>
+<li>Client cache control through the <em>HTTP</em> Headers: <code>Expires</code>, <code>Cache-Control</code>, <code>Last-Modified</code> &amp; <code>Pragma</code>.</li>
+</ul>
+<p><em>e.g.</em></p>
+<pre><code>Expires: -1
+Cache-Control: no-store, no-cache, must-revalidate
+Last-Modified: now
+Pragma: no-cache
+</code></pre><ul>
+<li><code>none</code> for the <em>HTTP</em> Header <code>X-Permitted-Cross-Domain-Policies</code>.</li>
+<li><code>SAMEORIGIN</code> for <code>X-Frame-Options</code></li>
+<li><code>X-Feature-Policy</code> set according to the functionality needed, <code>self</code> and <code>src</code> are the preferred
+values for the <code>allowed-list</code>.</li>
+</ul>
+<blockquote>
+<p><code>X-Feature-Policy</code> is still experimental at the time of this writing.</p>
+</blockquote>
+<h2 id="sql-injection-sqli">SQL Injection (SQLi)</h2>
+<p>It was mentioned as a recommendation, the following algorithms for password encryption when storing them in the database: <em>bcrypt</em> and <em>scrypt</em>.</p>
+<p>Parameter sanitization and good access control are among the common mitigation techniques, still, we are given the following best practices:</p>
+<ul>
+<li>Good input validation &amp; sanitization</li>
+<li>Use of Parameterized Queries</li>
+<li>No Dynamic SQL, not even in <em>Stored Procedures</em></li>
+<li>Lock down access, as in other areas, use the <em>Least Priviledge Principles</em></li>
+</ul>
+<p>In addition, some of the attacks known using this vector:</p>
+<ul>
+<li>Blind SQL Injection, no data is returned neither rendered to the User.</li>
+<li>SQL <code>waitfor</code> delay (Time-based attack) which are typically used for blind <em>SQLi</em>.</li>
+</ul>
+<h2 id="xss">XSS</h2>
+<p>Among the <em>defense mechanisms</em>, we&rsquo;ve got the following:</p>
+<ul>
+<li>Output Scaping</li>
+<li><em>HTML</em> Sanitization</li>
+<li>JS Sinks</li>
+<li>Sandboxing</li>
+<li>Safe JSON UI Usage</li>
+<li>Use of the <code>Content-Security-Policy</code> header.</li>
+</ul>
+<p>The following matrix was presented which encapsulates where we can use the different mechanisms:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Data Type</th>
+<th style="text-align:left">Context</th>
+<th style="text-align:left">Defense</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">String</td>
+<td style="text-align:left">HTML Body / Attribute</td>
+<td style="text-align:left">HTML Entity/Attribute Encode</td>
+</tr>
+<tr>
+<td style="text-align:right">String</td>
+<td style="text-align:left">Javascript variable</td>
+<td style="text-align:left">Javascript Hex Encoding</td>
+</tr>
+<tr>
+<td style="text-align:right">String</td>
+<td style="text-align:left">HTTP GET parameter</td>
+<td style="text-align:left">URL Encoding</td>
+</tr>
+<tr>
+<td style="text-align:right">String</td>
+<td style="text-align:left">Untrusted URL</td>
+<td style="text-align:left">URL Validation, avoid <code>javascript:</code> links, Attribute Encoding and Safe URL verifications</td>
+</tr>
+<tr>
+<td style="text-align:right">String</td>
+<td style="text-align:left">CSS</td>
+<td style="text-align:left">CSS Hex Encoding</td>
+</tr>
+<tr>
+<td style="text-align:right">HTML</td>
+<td style="text-align:left">Anywhere</td>
+<td style="text-align:left">HTML Sanitization (Client and Server side)</td>
+</tr>
+<tr>
+<td style="text-align:right">Any</td>
+<td style="text-align:left">DOM</td>
+<td style="text-align:left">Safe Use JS APIs</td>
+</tr>
+<tr>
+<td style="text-align:right">Untrusted Javascript</td>
+<td style="text-align:left">Anywhere</td>
+<td style="text-align:left">Sandboxing &amp; Delivery from Different Domain</td>
+</tr>
+<tr>
+<td style="text-align:right">JSON</td>
+<td style="text-align:left">Embedded</td>
+<td style="text-align:left">JSON Serialization</td>
+</tr>
+</tbody>
+</table>
+<p>A bit more on attacks, we&rsquo;ve got the types: <em>Reflected</em> &amp; <em>Persisted</em>, in esence the difference being that the <em>persisted</em>, as the name implies, sticks beyond the user requests or sessions, likely put in place through some feature of the Web Site or Application.</p>
+<p>Now, some example of attacks:</p>
+<ul>
+<li>Cookie Thefts, <em>i.e.</em> Session Hijacking</li>
+<li>Same Site Request Forgery</li>
+<li>Virtual Site Defacement</li>
+</ul>
+<p>With XSS, for the most part it is about what we can trust and where in the stack we&rsquo;ve got enough control to put safety mechanisms in place; he are some assumptions:</p>
+<ul>
+<li>Assume all variable added to a UI are dangerous, likewise for UI Templates.</li>
+<li>Ensure all protection from XSS is done at the UI layer.</li>
+<li>Don&rsquo;t depend, fully, on Server-Side mechanisms.</li>
+<li>Be wary of people disablng framework XSS protection features.</li>
+</ul>
+<blockquote>
+<p>All protections must be built within the UI layer itself such as escaping, encoding/decoding, sanitization</p>
+</blockquote>
+<h3 id="dom-xss">DOM XSS</h3>
+<p>This requires unexpected modifications to the actual <em>DOM</em> structure rendered at the client, this is considered as yet another type in addition to <em>reflected</em> and <em>persisted</em>; [IFrame Sandboxing][html5rocks-iframe-sandboxing] can help us to dramatically reduce risks when running 3rd party components on our applications.</p>
+<p>More information about [DOM-based XSS][owasp-dom-xss].</p>
+<h2 id="tools--frameworks">Tools &amp; Frameworks</h2>
+<p>There we some tools and frameworks mentioned that are worth looking into:</p>
+<ul>
+<li><a href="https://svelte.dev" title="Svelte">Svelte</a></li>
+<li><a href="https://github.com/retirejs/retire.js" title="Github - Retire JS">RetireJS</a></li>
+<li><a href="https://ssl-config.mozilla.org" title="Mozilla - SSL Config ">Mozilla SSL Config</a></li>
+<li><a href="https://securityheaders.com" title="Security Headers">Security Headers Check</a></li>
+<li><a href="https://www.ssllabs.com" title="SSL Labs">SSL Labs</a></li>
+<li><a href="http://www.jsfuck.com" title="JS Fuck">JS Fuck</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.text.encodings.web?view=netcore-3.1" title="Microsoft Docs - Web Encoders">Web Encoders</a></li>
+<li><a href="https://github.com/mganss/HtmlSanitizer" title="Github - HTML Sanitizer">HTML Sanitizier</a></li>
+<li><a href="https://github.com/cure53/DOMPurify" title="Github - DOM Purify">DOM Purify</a></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://owasp.org/www-project-secure-headers/" title="OWASP - Secure Headers Project">OWASP Secure Headers Project</a> - <em>OWASP</em></li>
+<li><a href="https://www.virtuesecurity.com/understanding-xss-auditor/" title="Virtue Security | XSS Auditor">The XSS Auditor</a> - <em>Virtue Security</em></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy" title="Mozilla Developer Network - X-Feature-Policy">X-Feature-Policy Header</a> - Mozilla Developer Network</li>
+<li><a href="https://owasp.org/www-community/attacks/DOM_Based_XSS" title="OWASP - DOM XSS">DOM XSS Attack</a> - <em>OWASP</em></li>
+<li><a href="https://owasp.org/www-project-cheat-sheets" title="OWASP - Cheat Sheets">OWASP Cheat Sheets</a> - <em>OWASP</em></li>
+<li><a href="https://owasp.org/www-project-application-security-verification-standard" title="OWASP - ASVS">OWASP ASVS</a> - <em>OWASP</em></li>
+<li><a href="https://istlsfastyet.com" title="Is TLS Fast Yet">Is TLS Fast Yet</a> - Is TLS Fast Yet</li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/webapi-applicationsecurity-owasp">webapi applicationsecurity owasp</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

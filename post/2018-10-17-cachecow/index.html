@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> A quick look at CacheCow |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2018-10-17-cachecow/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >A quick look at CacheCow</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2018-10-17T00:00:00Z">October 17, 2018</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech">tech</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>I wanted to give this library a go since I had quite a few posts about it and log what I ended up doing with it as well as key features I need to take into account and have knowledge of.</p>
+<p><a href="https://github.com/aliostad/CacheCow">CacheCow</a> stores cache data on the <em>Client-side</em> while the <em>Server-side</em> will merely provide caching directives which we can rely on the defaults or tell <em>how</em> and <em>when</em> we want to cache our resources. What I think is kind of cool from this library is how it encourages the developer and facilitates deferring handlign cache state validation out of Application code into specific components, it provides a degree of flexibility and extensibility for it.</p>
+<p><em>In-Memory</em> and <em>SQL (I assume MS SQL Server)</em> are the only cache store options available at the time of writing this post, however, the library does provide a mechanism to define our own.</p>
+<h2 id="concepts-and-features">Concepts and Features</h2>
+<p>There are a bunch of <a href="https://github.com/aliostad/CacheCow#concepts-and-definitions">Concept and Definitions</a> which I personally find a mix between standard and abstract concepts as well as componentes and elements particular to the library, some of them I believe are worth listing here:</p>
+<h3 id="general">General</h3>
+<ul>
+<li><strong>Resource</strong>: An Application resource that uniquely IDs through some sort of representation.</li>
+<li><strong>Representation</strong>: A specific embodiment of a resource through some format, goes hand-in-hand with <em>Resource</em>.</li>
+<li><strong>ETag</strong>: Indicates a specific version of a resource, shorthand for <a href="https://en.wikipedia.org/wiki/HTTP_ETag">Entity Tag</a>.</li>
+<li><strong>Expiry</strong>: Driven by the Server directives, it basically tells when a <em>cached</em> resource expires.</li>
+<li><strong>Consistency</strong>: Conditional HTTP <code>GET/PUT/PATCH/DELETE</code> are supported out of the box to counter common caching iconsistencies scenarios to ensure we get or affect the right version of the targeted resource.</li>
+<li><strong>Zero-Expiry Resources</strong>: Considered also those that have high consistency, basically they are expired the moment they reach the client, however, the cached copy may be used if the client makes a conditional HTTP GET.</li>
+</ul>
+<h3 id="library-specific">Library specific</h3>
+<ul>
+<li><strong>CacheCow.Client</strong>: This the API to leverage Client-side caching, it integrates with .NET <a href="https://docs.microsoft.com/sv-se/dotnet/api/system.net.http.httpclient?view=netframework-4.6">HttpClient</a> (.NET Framework I am assuming)</li>
+<li><strong>CacheCow.Server</strong>: This would be the API we can use for Server-side development such as Web Applications, Web Services, etc. At the time of this writing it supports both .NET Framework and .NET Core, their <a href="https://github.com/aliostad/CacheCow/tree/master/samples">samples</a> page provides an ASP.NET Core sample as well as the one I am linking here.</li>
+<li><strong>ICacheStore</strong>: Represents a Store using by the client to store cacheable representation of resources, an interface type that is to be implemented.</li>
+<li><strong>TimedETag</strong>: The ETag would be generated from the Last Modified timestamp.</li>
+<li><strong>ITimedETagExtractor</strong>: Interface implemented by the module responsible of extracting a <code>TimedETag</code> of a given type.</li>
+<li><strong>ITimedETagQueryProvider</strong>: Likely used when doing condtional queries, this would allow us to define modules that are responsible of fetching a resource of a given type from the backend in order to determine whether the resource has changed.</li>
+</ul>
+<p>So, there are two things I wanted to try:</p>
+<ul>
+<li>Use the simplest way to cache resources.</li>
+<li>Control how e-tags are generated for my resources.</li>
+</ul>
+<p>I have put together I small <a href="https://github.com/jgemedina/code-samples/tree/master/dotnet/LogsMonitor">Web Application</a> to test these features from CacheCow.</p>
+<p>The <strong>simplest way</strong> to get going is simply install the package and register the library elements with unity and annotate the controller action of choice as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// Register with Unity
+</span><span style="color:#75715e"></span>services.AddHttpCachingMvc(); <span style="color:#75715e">// comes right after the Mvc registration.
+</span></code></pre></div><p>and then, decorate our controller action and let the library defaults work.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[HttpGet]</span>
+<span style="color:#a6e22e">[HttpCacheFactory(20)]</span> <span style="color:#75715e">// This is attr we are looking for, 20 is the TTL is seconds.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;ActionResult&lt;IEnumerable&lt;ActivityLogEntryViewModel&gt;&gt;&gt; Index()
+{
+    <span style="color:#66d9ef">await</span> Task.Delay(<span style="color:#ae81ff">5000</span>);
+            
+    <span style="color:#66d9ef">return</span> Json(_logsService.GetActivityLogs().Select(l =&gt; <span style="color:#66d9ef">new</span> ActivityLogEntryViewModel {
+        EventTimestamp = <span style="color:#66d9ef">string</span>.Concat(l.EventTimestamp.ToShortDateString(), <span style="color:#e6db74">&#34; &#34;</span>, l.EventTimestamp.ToShortTimeString()),
+        UserIdentity = l.Who.ToString(),
+        SystemArea = l.SystemArea,
+        UserAction = l.UserAction
+}));
+</code></pre></div><p>Having defined and register our Timed ETag Extractor, we can put it to use, our Controlle method would look like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[HttpGet]</span>
+<span style="color:#a6e22e">[HttpCacheFactory(20, ViewModelType = typeof(ActivityLogEntryViewModel))]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;ActionResult&lt;IEnumerable&lt;ActivityLogEntryViewModel&gt;&gt;&gt; Index2()
+</code></pre></div><p>The type specified for <code>ViewModelType</code> has to match the one used in the <code>ITimedETagExtractor</code> implementation. In our Timed ETag Extractor, it is this line that calculatest the value of the ETag.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> b <span style="color:#66d9ef">in</span> SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(viewModel.EventTimestamp)))
+{
+    tagValue.Append(b.ToString(<span style="color:#e6db74">&#34;x2&#34;</span>));
+}
+<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> TimedEntityTagHeaderValue(tagValue.ToString());
+</code></pre></div><p>If the resource has changed, the value calculated would differ from the one on the client side which is the whole purpose of the validation, additionally we could use <code>ITimedETagQueryProvider</code> if we want to validate the resource in the backend store.</p>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/programming-web-caching-cachecow-dotnet-aspnet">programming web caching cachecow dotnet aspnet</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

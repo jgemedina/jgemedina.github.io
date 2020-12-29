@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Testability in Microservices |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-02-25-testability-in-microservices/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Testability in Microservices</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-02-25T00:00:00Z">February 25, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-microservices">tech microservices</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>This is from one of the few sessions, to be exactly two, that I found interesting from <a href="https://www.developerweek.com/Austin/" title="DeveloperWeek Austin, TX">DeveloperWeek Austin 2018</a>, I personally was expecting more, on the other hand, the 5-hour wait at <a href="https://franklinbbq.com/" title="Franklin BBQ">Franklin BBQ</a> was worth it.</p>
+<p>Leaving that aside, this particular summary is regarding those aspects we need to factor in when testing Microservices, especially if one happens to be in the center of the storm, having decided to approach a problem using Microservices, before that though, what situation or challenge (besides being overly willing by mere excitement) warrants the use of Microservices:</p>
+<blockquote>
+<p>The need to run asymmetrical workloads</p>
+</blockquote>
+<p>How independent they are from one another and self-contained; something interesting that came out of the session prior to diving into the topic of testing, was the highligh of some design considerations.</p>
+<p>Services should:</p>
+<ul>
+<li>Be a lightweight and discrete process.</li>
+<li>Run its own processes.</li>
+<li>Be individually deployable.</li>
+</ul>
+<p>No, onto testing, <strong>What should be Test?</strong></p>
+<ul>
+<li>Service Discovery</li>
+<li>Operational Overhead.</li>
+<li>Service interface versioning.</li>
+<li>Complexity that comes with Distributed Systems, such as: <em>N/W Latency</em>, <em>Fault Tolerance</em>, <em>Serialization Overhead</em>.</li>
+</ul>
+<h1 id="approaches-to-testing--techniques">Approaches to Testing / Techniques</h1>
+<h2 id="orchestration">Orchestration</h2>
+<ul>
+<li>Testing by invoking asynchronous processes and doing continuous monitoring.</li>
+<li>Use simulation to stabilize the dependencies and provide predictive behavior, <em>Service Virtualization</em> could be an option.</li>
+</ul>
+<h2 id="service-virtualization">Service Virtualization</h2>
+<ul>
+<li>We need to emulate a particular service or component that are acting dependencies.</li>
+<li>Useful when such dependnecy is being developed as well and not ready yet, the emulated version takes its place.</li>
+<li>Early testing.</li>
+</ul>
+<p>A bit more on virtualization:</p>
+<ul>
+<li>Clients must be prepared for services to fail, this touches a little bit on resiliency and the discipline of CHAOS engineering.</li>
+<li>Emphasis on real-time monitoring of applications.</li>
+<li>Logging framework, this is of extreme importance for visibility, especially when we have decoupled systems.</li>
+</ul>
+<p>Other practices such as <em>correlating</em> resources and <em>application telemetry</em> could also be taken into consideration.</p>
+<h2 id="choreography">Choreography</h2>
+<ul>
+<li>Pushing messages into different event streams and picking them up elsewhere.</li>
+<li>Provide a variety of data to validate different event flows.</li>
+</ul>
+<h1 id="testing-best-practices">Testing best practices</h1>
+<h2 id="test-early-using-service-virtualization">Test Early using Service Virtualization</h2>
+<ul>
+<li><em>Shift left</em> with validation focus on <em>unit</em> and <em>component</em> testing.</li>
+<li>Overcome testing constraints by leveraging service virtualization.</li>
+</ul>
+<h2 id="smart-endpoints-and-dumb-pipes">Smart Endpoints and Dumb Pipes</h2>
+<ul>
+<li>Integration testing to ensure <em>decoupling</em> between <em>microservices</em>.</li>
+<li>End to End testing to ensure <em>Choroeography</em> and <em>Orchestration</em> of components.</li>
+</ul>
+<h2 id="infrastructure-automation">Infrastructure Automation</h2>
+<ul>
+<li>Establish and drive validation at every step with CI/CD pipelines.</li>
+<li>Robust infrastructure automation strategy, <em>Infrastructure as a Code</em> it is worth looking into.</li>
+</ul>
+<h2 id="decentralized-governance">Decentralized Governance</h2>
+<ul>
+<li>Contract testing to ensure things are <em>Consumer driven</em> and not <em>Product driven</em>.</li>
+<li>Ensure Services are fully functional as a standalone unit.</li>
+</ul>
+<h2 id="design-for-failure">Design for Failure</h2>
+<ul>
+<li>Validate <em>performance</em>, <em>scalability</em> &amp; <em>reliability</em> early in your SDLC.</li>
+</ul>
+<h2 id="descentralized-data-management">Descentralized Data Management</h2>
+<ul>
+<li>Database isolation.</li>
+<li>Data Caching and Sharding.</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://simplicable.com/new/orchestration-vs-choreography" title="Choreography vs Orchestration">Choreography vs Orchestration</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/microservices-testability-distributedsystems">microservices testability distributedsystems</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

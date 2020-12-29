@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> PowerShell Customization |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2019-06-23-powershell-customizations/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >PowerShell Customization</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2019-06-23T00:00:00Z">June 23, 2019</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-scripting">tech scripting</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>Finally I was able to take some time to &ldquo;pimp&rdquo; my powershell prompt, I had took the time to customize
+my zsh prompt both in my mac and pc (using WSL) in order to get <a href="https://github.com/bhilburn/powerlevel9k" title="Powerline Theme for ZSH">Powerline9k</a>.</p>
+<p>Anyways, I followed this guide which I stumbled upon on Twitter; the poster showed it running on <a href="https://devblogs.microsoft.com/commandline/introducing-windows-terminal/" title="Windows Terninal">Windows Terminal</a>, I have to settle on my current config of <a href="https://conemu.github.io/" title="ConEmu - The handy terminal">ConEmu</a>
+given that I have not installed <a href="https://docs.microsoft.com/en-us/windows/release-information/status-windows-10-1903" title="Windows 10 (1903) Update">Windows May Update (1903)</a></p>
+<p>The guide is pretty straight forward, some variations I had to make:</p>
+<ul>
+<li>Make sure you install the latest version of PowerShellGet, or at least a version that supports the flag <code>-AllowPrerelease</code>. This is needed to get the version required of the <em>posh-git</em> Module.</li>
+<li>Install <em>posh-git with</em> <code>-AllowPrerelease</code>, I forgot to do this an not all the properties on the <code>$GitPromptSettings</code> were available causing a few issues on the script. (Null refs).</li>
+<li>The scripts for the VS Prompt provided by the author rely on having the <em>sed</em> binary on your system, which I did not have and did not want to instal Cygwin either, therefore I had to make a small adjustment to the script in order to use <code>Get-Content</code>, the change looks as follow:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> (Test-Path ~/.azure/clouds.config) {
+  <span style="color:#75715e">#$currentSub = &amp; sed -nr &#34;/^\[AzureCloud\]/ { :l /^subscription[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b l;}&#34; ~/.azure/clouds.config</span>
+  $subscriptionLine = ((Get-Content -Path ~/.azure/clouds.config) <span style="color:#f92672">-Match</span> <span style="color:#e6db74">&#34;^subscription(\ =)&#34;</span>)[0]
+  <span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-ne</span> $subscriptionLine) {
+    $currentSub = $subscriptionLine.Substring($subscriptionLine.Length - 36)
+    $currentAccount = (Get-Content ~/.azure/azureProfile.json | ConvertFrom-Json).subscriptions | Where-Object { $_.id <span style="color:#f92672">-eq</span> $currentSub }
+    <span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-ne</span> $currentAccount) {
+      Write-Host <span style="color:#e6db74">&#34; &#34;</span> -NoNewLine
+      Write-Host <span style="color:#e6db74">&#34; </span>$(<span style="color:#66d9ef">[char]</span>0xf0c2)$(<span style="color:#66d9ef">[char]</span>0xfd03)<span style="color:#e6db74">&#34;</span> -NoNewLine -BackgroundColor DarkCyan -ForegroundColor Yellow
+      Write-Host <span style="color:#e6db74">&#34; </span>$($currentAccount.name)<span style="color:#e6db74"> &#34;</span> -NoNewLine -BackgroundColor DarkCyan -ForegroundColor White
+    }
+  }
+}
+</code></pre></div><p>The substitution is the commented line</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#currentSub = ...</span>
+</code></pre></div><p>with</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$subscriptionLine = ((Get-Content -Path ~/.azure/clouds.config) <span style="color:#f92672">-Match</span> <span style="color:#e6db74">&#34;^subscription(\ =)&#34;</span>)[0]
+</code></pre></div><p><code>$subscriptionLine</code> ends up being an array of matching lines, which in our case is just one, hence accessing it by index <code>0</code>, thence it is further parsed to extract the <em>Subscription GUID</em>.</p>
+<p>The rest of the code is already checked in to my <a href="https://github.com/jgemedina/pwsh-profile" title="Personal PowerShell Profile | GitHub">PowerShell Profile Repository</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://bradwilson.io/blog/prompt/powershell" title="Anatomy of a Prompt (Power Shell)">Anatomy of a Prompt (PowerShell)</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/shell-customization-powershell-pwsh-scripting">shell customization powershell pwsh scripting</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

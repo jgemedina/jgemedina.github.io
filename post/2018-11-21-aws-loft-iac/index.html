@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> AWS Loft - Infrastructure as a Code |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2018-11-21-aws-loft-iac/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >AWS Loft - Infrastructure as a Code</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2018-11-21T00:00:00Z">November 21, 2018</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/tech-cloud">tech cloud</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>As with other sessions from <a href="https://awsloft-stockholm.com/" title="AWS Loft">AWS Loft</a> in Stockholm, Sweden I attended, I will log my notes here in order to dump the information somewheere. Yesterday in particular I attended a session related to <em>Infrastructure as Code</em> (I will refer onwards as <em>IaC</em>) and the role it currently plays in modern software solutions.</p>
+<h1 id="premise">Premise</h1>
+<p>In the past I had been able to use <em>IaC</em> for very simple solutions that would focus merely on provisioning machines, particularly enforcing a desired state, commonly known as <em>Desired Configuration State</em> or <em>DSC</em>; during the session however it was remakred that <em>IaC</em> plays a much bigger role and spans to other areas in the organization where undoubtably is of great help.</p>
+<p>The game changing aspect about all this is that this introduces a new paradigm to work with and understand when it comes to managing infrastructure and resources, resources are now virtual and declaratively expressed through Code, the fact they&rsquo;ve become that yields a few benefits right off the bat, <em>Resources</em> can now be <strong>Versioned</strong> as any other piece of code, it becomes easier to <strong>Audit</strong> them, we gain <strong>Consistency</strong> in our stack and increase <em>productivity</em> through <strong>Automation</strong>.</p>
+<h1 id="applied-infrastructure-as-code">Applied Infrastructure as Code</h1>
+<p>As mentioned before, <em>IaC</em> spans to various areas which are mentioned hereinafter, the tools and techniques as well as exceptions may vary for each one; I have also added the corresponding AWS offering.</p>
+<h1 id="resource-provisioning">Resource Provisioning</h1>
+<p>This is where we rely on a <em>Provisioning Engine</em> which will ingest and follow the instructions expressed in our code and take certain <em>Actions</em> and as a result we will have <em>Infrastructure Resources</em> created.</p>
+<p>It is here where we can have a degree of <em>Automation</em> but also is very common to see <em>Templatizing</em> as a technique through which we declare how we want to structure our resources, i.e. Type of Instance (defined HW profile), Networking settings, etc.</p>
+<p>A couple of <strong>Common Approaches</strong> to resource provisioning were mentioned during the session:</p>
+<ul>
+<li>
+<p><strong>Day 1</strong>: Infrastructure is created and the DSC is enforced, in other words, we allocate and create resources.</p>
+</li>
+<li>
+<p><strong>Day 2</strong>: Also known as <em>Incremental Changes</em>, this could be Application Deployment, Certificate Installation, etc. which is done on <em>Existing Infrastructure</em>.</p>
+</li>
+<li>
+<p><strong>Infrastructure immutability</strong>: It is based on the fact that there are no incremental changes or patches bur rather have such state <em>Baked In</em>, <em>New</em> infrastucture is rolled out instead of <em>Patching</em> existing.</p>
+</li>
+</ul>
+<p><em>Day1</em> + <em>Day2</em> are usually used together and it is also refererred to as <em>Incrementally Patching</em> your resources, of course, each use case will warrant to use of one or the other.</p>
+<h2 id="aws-cloudformation">AWS CloudFormation</h2>
+<p>This is the offering from AWS and it works based on the concept of a Stack which is defined through a <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html#w2ab1b5c15b7">Template</a> which declare our infrastructure resources, some of the features/capabilities:</p>
+<ul>
+<li>Uses JSON to structure the definition.</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Changsets</a> exist to show <em>Intent</em>, a way to preview what the instructions in the template would do.</li>
+<li>As we have said before, a <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html#w2ab1b5c15b9">Stack</a> is the unit, if I may call it that way, to represent a definition of resources, <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested Stacks</a> allow us to modularize a stack definition.</li>
+</ul>
+<h1 id="configuration-management">Configuration Management</h1>
+<p>The common scenarios are <em>Day 2</em> tasks, where we need to make changes upon existing managed infrastructure, for instance roll out a new version of an Application to an exiting server farm or make changes to infrastructure itself.</p>
+<p>At the time of this writing, AWS offers two solutions:</p>
+<ul>
+<li><strong>AWS OpsWorks for Chef Automate</strong>:  According to AWS folks this would be the tool to use for those wiht a <a href="https://www.chef.io/chef/" title="Chef Automation">Chef</a> background, brings Chef as a managed solution offering where we still work with <a href="https://docs.chef.io/cookbooks.html" title="Chef | Cookbooks">Cookbooks</a> and <a href="https://docs.chef.io/recipes.html" title="Chef | Recipies">Recipies</a>,</li>
+</ul>
+<h2 id="aws-systems-manager">AWS Systems Manager</h2>
+<p>Offers the capabilities to manage EC2 instances, on-premise servers or virtual machines and provides a central place to access operational data and automate tasks across all the managed resources. The typical lifecycle while using it usually goes as:</p>
+<ul>
+<li><strong>Configuration</strong>, which is about performing configuration, schedule or automation of tasks across your instances by using one of the known interfaces such as the Web Console, SDK, HTTP API, etc.</li>
+<li><strong>Verification and Processing</strong>, The verification of the configuration itself for managed instances, permissions are included also. For on-prem scenario, communication with the SSM Agent is keep in order to be able to instruct what to do.</li>
+<li><strong>Reporting</strong>, which is about reporting all findings to the AWS Cloud.</li>
+</ul>
+<p>Some basic <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html" title="AWS Systems Manager | Concepts">concepts</a> to grasp from AWS Systems Manager:</p>
+<ul>
+<li>Automation Document: JSON-based definition of the Automation Workflow.</li>
+<li>Automation Action: Part of the workflow, could be single or multiple steps and usually involves some sort of input parameters. A Step is associated with an <em>Action</em> or plugin.</li>
+<li>Automation Queue: There is max. number of 25 automations that can be ran simultaneously per account, if more are needed they are queued for execution; each account can queue up a max. of 75 automations.</li>
+</ul>
+<p>Another interesting concept is <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html" title="AWS Systems Manager | Run Commands">Run Commands</a> which allow the execution of arbitrary commmands on your managed instances.</p>
+<h1 id="monitoring--performance">Monitoring &amp; Performance</h1>
+<p>In this particular area, we are concerned about the overall operation of our resources, paying special attention on things such as performance, throughput, etc. Visibility over metrics is crucial to detect and troubleshoot issues.</p>
+<p>IaC can be used to define routines that shall be executed based on what monitoring reports, this is, a reactive approach to respond to issues to make operating environments eventually recover and perform normally.</p>
+<h2 id="aws-cloudwatch-and-aws-lambda">AWS CloudWatch and AWS Lambda</h2>
+<p><em>AWS CloudWatch</em> offers metrics and logs collected from the various AWS Services, <em>Alarms</em> are raised when configured thresholds are reached. <em>AWS Lambda</em> can be used to <em>react</em> to this alarms and apply countermeasures in order to ensure a level of resiliency in operating environments.</p>
+<p>Given that AWS Lambda are user-defined functions, regardless of the language, it brings all the perks we are know from handling code, it can be versioned and maintained as part of the overall solution.</p>
+<h1 id="governance--compliance">Governance &amp; Compliance</h1>
+<p>Infrastructure as Code spans into the Gov. and Compliance space by definig rules and routines that react to certain events that may compromise the compliance of our resources to a desired state. Let&rsquo;s mention some scenarios:</p>
+<ul>
+<li>Users showhow gaining restricted permissions or access.</li>
+<li>Network I/O rules.</li>
+<li>Changes in Hardware Configuration.</li>
+</ul>
+<p>It is about the <em>sudden</em> change in the state of our Infrastructure, what need to be able to <em>audit</em> such events and <em>act</em> upon them.</p>
+<h2 id="aws-config">AWS Config</h2>
+<p>This Service allows you to continuously <em>Audit</em>, <em>Assess</em> and <em>Evaluate</em> your Resources Configuraton and builds an Inventory out of it where you can track changes to them. There are a few concepts to grasp:</p>
+<ul>
+<li><strong>Config Rules</strong>, which represent a <em>desired</em> configuration state for your resources. We have access to predefined <em>Managed Rules</em> but also have the ability to create <em>Custom Rules</em> too.</li>
+<li><strong>Resource Inventory</strong>, should show the changes performed to your instances and actually show whether a resource or resources are compliant or not.</li>
+</ul>
+<p>Of course, corrective actions can be taken besides monitoring an alerting, a <em>rule</em> will flag a resource as non-compliant if applicable, however, <strong>AWS Lambda</strong> can be used to take corrective actions. Some examples of non-compliance:</p>
+<ul>
+<li>A Volume created does not have encryption enabled while this is a requirement, such volume would be flagged by a rule.</li>
+<li>EC2 instances were created from a non-golden image, such instances would be flagged.</li>
+</ul>
+<p>Config can produced aggregate data from multiple regions and accounts. More on <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html" title="AWS Config | Rules">AWS Rules</a>.</p>
+<h1 id="resource-optimization">Resource Optimization</h1>
+<p>This is about interrogating the operating environment to ensure things are provisioned as we wanted and operating to our expectations; the ultimate goal being the overal state and operation of our resources is as optimal as possible; to continuously monitor the environment to optimize aspects such as performace, security and cost.</p>
+<h2 id="aws-trusted-advisor">AWS Trusted Advisor</h2>
+<p>Exposes an API that allow us to interrogate our Infrastructure hence get recommendations on thigs we could improve and take <em>actions</em>, such actions we could express through code. Trusted Advisor can hook into the support system in order to raise a ticket or use cloud watch to setup metrics and automate corrective actions with <em>AWS CloudWatch</em>.</p>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://aws.amazon.com/professional-services/CAF/" title="AWS Cloud Adoption Framework">AWS Cloud Adoption Framework (CAF)</a></li>
+<li><a href="https://d0.awsstatic.com/whitepapers/DevOps/infrastructure-as-code.pdf" title="Infrastructure as Code Whitepaper">AWS Infrastructure as Code Whitepaper</a> —by <a href="https://www.jeffscottlevine.com/">Jeff Scott Levine</a>—</li>
+<li><a href="https://aws.amazon.com/whitepapers/security-at-scale-governance-in-aws/" title="Security at Scale: Governance in AWS">Security at Scale: Governance in AWS</a></li>
+</ul>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/aws-iaas-iac-awsloft">aws iaas iac awsloft</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>

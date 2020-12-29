@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <title> Cloud-native DevEx |  Software Craftsman, Young Curmudgeon</title>
+  <link rel="stylesheet" href="jgemedina.github.iocss/simpleness.css">
+  <link rel="canonical" href="jgemedina.github.io/post/2020-04-12-devex-notes/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Software Craftsman, Young Curmudgeon">
+  
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="menus">
+  
+  <a href="jgemedina.github.io">Software Craftsman, Young Curmudgeon</a>
+  
+
+  <nav >
+    
+  </nav>
+
+  <nav class="fontawesome">
+    
+    
+  </nav>
+  
+  
+</header>
+
+<article class="article">
+  <header>
+    <h1 style="text-align: center;" >Cloud-native DevEx</h1>
+
+    <div class="post-meta">
+    
+      <time datetime="2020-04-12T00:00:00Z">April 12, 2020</time> &nbsp; 
+    
+
+     &nbsp;
+
+    
+    
+    
+
+    
+
+    
+      <i class="fas fa-folder"></i>
+      
+      <a href="/jgemedina.github.io/categories/dev-methodology">dev methodology</a>
+      &nbsp;
+      
+    
+    </div>
+  </header>
+
+   
+
+  <div class="text">
+    <p>These are merely some notes I&rsquo;ve been collecting overtime, most of them from <em>microXchg 2019</em> regarding different practices, guidelines and tooling that impact a team&rsquo;s development experience through the <em>SDLC</em>.</p>
+<p>So, in principle:</p>
+<blockquote>
+<p>DevEx is primarily about minimising the friction between having an idea to dev/test, release and deliver observable business
+value; how you construct your platform impacts the developer experience greatly.</p>
+<p>It is essential to curate the experience of local development, CI/CD, observability, issue troubleshooting, etc.</p>
+</blockquote>
+<p>Some areas of focus:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left">Prototype</th>
+<th style="text-align:left">Production</th>
+<th style="text-align:left">Mission-Critical</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><em>Dev &amp; Test</em></td>
+<td style="text-align:left">Local/Hybrid</td>
+<td style="text-align:left">Hybrid/Local/Stage</td>
+<td style="text-align:left">Local/(Hybrid) staged</td>
+</tr>
+<tr>
+<td style="text-align:right"><em>Release</em></td>
+<td style="text-align:left">Canary (Synthetic shadow)</td>
+<td style="text-align:left">Canary / Pre-prod test</td>
+<td style="text-align:left">Pre-prod test / Canary</td>
+</tr>
+<tr>
+<td style="text-align:right"><em>Guide Rails</em></td>
+<td style="text-align:left">YOLO</td>
+<td style="text-align:left">Limited</td>
+<td style="text-align:left">Strong</td>
+</tr>
+<tr>
+<td style="text-align:right"><em>Where to focus?</em></td>
+<td style="text-align:left">Inner development loop &amp; CI/CD</td>
+<td style="text-align:left">Observability</td>
+<td style="text-align:left">Observability &amp; Debugging</td>
+</tr>
+</tbody>
+</table>
+<p>In terms of development and testing, there are a broad set of options to get started locally which among other advantages we won&rsquo;t incur costs for our workloads, at least for the most part; we could also choose from two strategies: <strong>take some of our workloads to the cloud</strong> or <strong>bring some of the stack down locally</strong> to test.</p>
+<p><a href="https://www.telepresence.io/" title="Telepresence - Local Development and Testing for K8s">Telepresence</a> &amp; <a href="https://squash.solo.io/" title="Squash - The Debugger for Microservices">Squash</a> are among those tools that facilitate local debugging &amp; testing microservices particularly, here&rsquo;s a <a href="https://www.weave.works/blog/debugging-microservices-squash-vs-telepresence" title="Debugging Microservices - Squash vs Telepresence">write-up</a> where both are compared for distributed logging.</p>
+<p>In terms of tools to automate the inner development loop:</p>
+<ul>
+<li>Draft</li>
+<li>Gitkub</li>
+<li><a href="https://skaffold.dev/" title="Skaffold - Local K8s Development">Skaffold</a> —local K8s development</li>
+<li><a href="https://tilt.dev/" title="Tilt - Local K8s Development">Tilt</a> -local K8s development</li>
+<li><a href="https://garden.io/" title="Garden - Automation of K8s Development Workloads">Garden</a></li>
+</ul>
+<p>Here is also a <a href="https://codefresh.io/howtos/local-k8s-draft-skaffold-garden/" title="The Ultimate Guide for Local Development for K8s">write-up</a> that compares some of them.</p>
+  </div>
+
+  <footer>
+    <hr class="end-line">
+
+    
+
+    
+    <div class="post-tags">
+      <i class="fas fa-tags"></i>
+      
+        <a href="/jgemedina.github.io/tags/devex-software-development">devex software development</a>
+        &nbsp;
+      
+    </div>
+    
+
+    
+    
+  </footer>
+
+  <div class="comments">
+
+
+
+</div>
+
+</article>
+
+
+</body>
+<div class="foot">
+  
+  
+
+  
+</div>
+
+
+
+</html>
